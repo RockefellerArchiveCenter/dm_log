@@ -1,0 +1,64 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="dm_items show">
+  <h2>Show DmItem</h2>
+<!--
+  :auto_id
+  :format
+  :status
+  :method
+  :transfer_date
+  :disposition
+  :notes
+  :refid
+  :display_title
+  :resource
+-->
+  <table summary="DmItem detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @dm_item.auto_id %></td>
+    </tr>
+    <tr>
+      <th>Transfer Status</th>
+      <td><%= @dm_item.status %></td>
+    </tr>
+    <tr>
+      <th>Method</th>
+      <td><%= @dm_item.method %></td>
+    </tr>
+    <tr>
+      <th>Transfer Date</th>
+      <td><%= @dm_item.transfer_date %></td>
+    </tr>
+    <tr>
+      <th>Disposition</th>
+      <td><%= @dm_item.disposition %></td>
+    </tr>
+    <tr>
+      <th>Notes</th>
+      <td><%= @dm_item.notes %></td>
+    </tr>
+    <tr>
+      <th>ArchivesSpace RefID</th>
+      <td><%= @dm_item.refid %></td>
+    </tr>
+    <tr>
+      <th>Parent Component</th>
+      <td><%= @dm_item.display_title %></td>
+    </tr>
+    <tr>
+      <th>Parent Resource</th>
+      <td><%= @dm_item.resource %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @dm_item.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @dm_item.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

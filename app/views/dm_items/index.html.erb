@@ -1,0 +1,36 @@
+<div class="dm_items index">
+  <h2>Digital Media Items</h2>
+
+  <%= link_to("Add New DmItem", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Digital media item list">
+    <tr class="header">
+      <th>ID</th>
+      <th>Format</th>
+      <th>Transfer Status</th>
+      <th>Transfer Method</th>
+      <th>Transfer Date</th>
+      <th>Dispositoin</th>
+      <th>Parent Component</th>
+      <th>Parent Resource</th>
+      <th>Actions</th>
+    </tr>
+    <% @dm_items.each do |dm_item| %>
+    <tr>
+      <td><%= dm_item.auto_id %></td>
+      <td><%= dm_item.format %></td>
+	  <td><%= dm_item.status %></td>
+	  <td><%= dm_item.method %></td>
+	  <td><%= dm_item.transfer_date %></td>
+	  <td><%= dm_item.disposition %></td>
+	  <td><%= dm_item.display_title %></td>
+	  <td><%= dm_item.resource %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => dm_item.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => dm_item.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

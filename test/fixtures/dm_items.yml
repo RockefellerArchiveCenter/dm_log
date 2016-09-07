@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auto_id: MyString
+  format: MyString
+  status: MyString
+  method: MyString
+  disposition: MyString
+  method: MyString
+  transfer_date: 2016-09-06
+  notes: MyText
+  refid: MyString
+  display_title: MyString
+  resource: MyString
+
+two:
+  auto_id: MyString
+  format: MyString
+  status: MyString
+  method: MyString
+  disposition: MyString
+  method: MyString
+  transfer_date: 2016-09-06
+  notes: MyText
+  refid: MyString
+  display_title: MyString
+  resource: MyString

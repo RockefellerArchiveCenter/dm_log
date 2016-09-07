@@ -1,0 +1,55 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="dm_items new">
+  <h2>Create Digital Media Item</h2>
+
+  <%= form_for(:dm_item, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="DmItem form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:auto_id) %></td>
+      </tr>
+      <tr>
+        <th>Format</th>
+        <td><%= f.text_field(:format) %></td>
+      </tr>
+      <tr>
+        <th>Transfer Status</th>
+        <td><%= f.text_field(:status) %></td>
+      </tr>
+      <tr>
+        <th>Method</th>
+        <td><%= f.text_field(:method) %></td>
+      </tr>
+      <tr>
+        <th>Transfer Date</th>
+        <td><%= f.date_field(:transfer_date) %></td>
+      </tr>
+      <tr>
+        <th>Disposition</th>
+        <td><%= f.text_field(:disposition) %></td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td><%= f.text_field(:notes) %></td>
+      </tr>
+      <tr>
+        <th>ArchivesSpace RefID</th>
+        <td><%= f.text_field(:refid) %></td>
+      </tr>
+      <tr>
+        <th>Parent Component</th>
+        <td><%= f.text_field(:display_title) %></td>
+      </tr>
+      <tr>
+        <th>Parent Resource</th>
+        <td><%= f.text_field(:resource) %></td>
+      </tr>
+    </table>
+    <div class="form-buttons">
+      <%= submit_tag("Create DmItem") %>
+    </div>
+
+  <% end %>
+</div>
