@@ -1,3 +1,8 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="dm_items index">
   <h2>Digital Media Items</h2>
 

@@ -30,6 +30,7 @@ class DmItemsController < ApplicationController
     # Save the object
     if @dm_item.save
     # If save succees, redirect to the index action
+    flash[:notice] = "Item added successfully."
     redirect_to(:action => "index")
   else
     # If save fails, redisplay the form so user can fix problems
@@ -56,9 +57,9 @@ class DmItemsController < ApplicationController
     end
   end
 
-  def delete
-    @dm_item = DmItem.find(params[:id])
-  end
+#  def delete
+#    @dm_item = DmItem.find(params[:id])
+#  end
   
   private 
   
