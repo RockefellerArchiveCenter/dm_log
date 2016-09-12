@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DmLog</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Digital Media Log <%= @page_title %></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
   </head>
 
   <body>
+      <div id="main">
+        <% if !flash[:notice].blank? %>
+          <div class="notice">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
     <%= yield %>
   </body>
 </html>

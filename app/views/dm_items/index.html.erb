@@ -1,13 +1,10 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<% @page_title = "Index" %>
 <div class="dm_items index">
   <h2>Digital Media Items</h2>
 
   <%= link_to("Add New DmItem", {:action => 'new'}, :class => 'action new') %>
 
+  <div><%= pluralize(@dm_items.size, 'digital media item') %> found</div>
   <table class="listing" summary="Digital media item list">
     <tr class="header">
       <th>ID</th>
@@ -21,6 +18,7 @@
       <th>Actions</th>
     </tr>
     <% @dm_items.each do |dm_item| %>
+	<tr class="<%= cycle('odd', 'even') %>"> 
     <tr>
       <td><%= dm_item.auto_id %></td>
       <td><%= dm_item.format %></td>
