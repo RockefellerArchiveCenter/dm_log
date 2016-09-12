@@ -1,39 +1,39 @@
 
 	<table summary="DmItem form fields">
       <tr>
-        <th>ID</th>
+        <th><%= f.label(:auto_id, "ID") %></th>
         <td><%= f.text_field(:auto_id) %></td>
       </tr>
       <tr>
-        <th>ArchivesSpace RefID</th>
+        <th><%= f.label(:refid, "ArchivesSpace RefID") %></th>
         <td><%= f.text_field(:refid) %></td>
       </tr>
       <tr>
-        <th>Parent Component</th>
+        <th><%= f.label(:display_title, "Component") %></th>
         <td><%= f.text_field(:display_title) %></td>
-        <th>Parent Resource</th>
+        <th><%= f.label(:resource) %></th>
         <td><%= f.text_field(:resource) %></td>
       </tr>
       <tr>
-        <th>Format</th>
+        <th><%= f.label(:format) %></th>
         <td><%= f.text_field(:format) %></td>
       </tr>
       <tr>
-        <th>Transfer Status</th>
-        <td><%= f.text_field(:status) %></td>
-        <th>Transfer Method</th>
-        <td><%= f.text_field(:method) %></td>
+        <th><%= f.label(:status, "Transfer Status") %></th>
+        <td><%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %></td>
+        <th><%= f.label(:method, "Transfer Method") %></th>
+        <td><%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %></td>
       </tr>
       <tr>
-        <th>Transfer Date</th>
+        <th><%= f.label(:transfer_date, "Date Transferred") %></th>
         <td><%= f.date_field(:transfer_date) %></td>
       </tr>
       <tr>
-        <th>Disposition</th>
-        <td><%= f.text_field(:disposition) %></td>
+        <th><%= f.label(:disposition, "Item Disposition") %></th>
+        <td><%= f.select(:disposition, ["Retain", "Destroy"]) %></td>
       </tr>
       <tr>
-        <th>Notes</th>
+        <th><%= f.label(:notes) %></th>
         <td><%= f.text_area(:notes, :size => "40x5") %></td>
       </tr>
       
