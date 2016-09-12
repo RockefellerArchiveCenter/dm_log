@@ -6,9 +6,12 @@
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag("application", :media => "all") %>
   </head>
 
   <body>
+	  <header>
+	  </header>
       <div id="main">
         <% if !flash[:notice].blank? %>
           <div class="notice">

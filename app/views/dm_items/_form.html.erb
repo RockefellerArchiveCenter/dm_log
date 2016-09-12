@@ -5,15 +5,23 @@
         <td><%= f.text_field(:auto_id) %></td>
       </tr>
       <tr>
+        <th>ArchivesSpace RefID</th>
+        <td><%= f.text_field(:refid) %></td>
+      </tr>
+      <tr>
+        <th>Parent Component</th>
+        <td><%= f.text_field(:display_title) %></td>
+        <th>Parent Resource</th>
+        <td><%= f.text_field(:resource) %></td>
+      </tr>
+      <tr>
         <th>Format</th>
         <td><%= f.text_field(:format) %></td>
       </tr>
       <tr>
         <th>Transfer Status</th>
         <td><%= f.text_field(:status) %></td>
-      </tr>
-      <tr>
-        <th>Method</th>
+        <th>Transfer Method</th>
         <td><%= f.text_field(:method) %></td>
       </tr>
       <tr>
@@ -26,18 +34,7 @@
       </tr>
       <tr>
         <th>Notes</th>
-        <td><%= f.text_field(:notes) %></td>
+        <td><%= f.text_area(:notes, :size => "40x5") %></td>
       </tr>
-      <tr>
-        <th>ArchivesSpace RefID</th>
-        <td><%= f.text_field(:refid) %></td>
-      </tr>
-      <tr>
-        <th>Parent Component</th>
-        <td><%= f.text_field(:display_title) %></td>
-      </tr>
-      <tr>
-        <th>Parent Resource</th>
-        <td><%= f.text_field(:resource) %></td>
-      </tr>
+      
     </table>
