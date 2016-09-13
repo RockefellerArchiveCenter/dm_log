@@ -1,18 +1,19 @@
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
-
+<% @page_title = " | Add Item" %>
+<br/>
+<br/>
 <div class="dm_items new">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title">Update Digital Media Item</h2>
   </div>
-<div class="panel-body">
 
   <%= form_for(:dm_item, :url => {:action => 'create'}) do |f| %>
+
   <%= render(:partial => "form", :locals => {:f => f}) %>
     <div class="form-buttons">
       <%= submit_tag("Add Digital Media Item") %>
     </div>
 
   <% end %>
-</div>
+  <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 </div>

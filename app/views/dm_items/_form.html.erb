@@ -1,3 +1,13 @@
+    <% if @dm_item.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
+        <ul>
+          <% @dm_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
 <div class="panel-body">
 	<div class="field">
         <%= f.label(:auto_id, "ID") %>
@@ -18,7 +28,7 @@
       </div>
       <div class="field">
         <%= f.label(:format) %>
-        <%= f.select(:format, ["CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
+        <%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
       </div>
       <div class="field">
         <%= f.label(:status, "Transfer Status") %>
@@ -30,7 +40,7 @@
       </div>
       <div class="field">
         <%= f.label(:transfer_date, "Date Transferred") %>
-        <%= f.date_field(:transfer_date) %>
+        <%= f.date_select(:transfer_date, :end_year => Time.now.year+1, :order => [:month, :day, :year], :include_blank => true,) %>
 		</div>
       <div class="field">
         <%= f.label(:disposition, "Item Disposition") %>
