@@ -1,40 +1,44 @@
-
-	<table summary="DmItem form fields">
-      <tr>
-        <th><%= f.label(:auto_id, "ID") %></th>
-        <td><%= f.text_field(:auto_id) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:refid, "ArchivesSpace RefID") %></th>
-        <td><%= f.text_field(:refid) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:display_title, "Component") %></th>
-        <td><%= f.text_field(:display_title) %></td>
-        <th><%= f.label(:resource) %></th>
-        <td><%= f.text_field(:resource) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:format) %></th>
-        <td><%= f.text_field(:format) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:status, "Transfer Status") %></th>
-        <td><%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %></td>
-        <th><%= f.label(:method, "Transfer Method") %></th>
-        <td><%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:transfer_date, "Date Transferred") %></th>
-        <td><%= f.date_field(:transfer_date) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:disposition, "Item Disposition") %></th>
-        <td><%= f.select(:disposition, ["Retain", "Destroy"]) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:notes) %></th>
-        <td><%= f.text_area(:notes, :size => "40x5") %></td>
-      </tr>
+<div class="panel-body">
+	<div class="field">
+        <%= f.label(:auto_id, "ID") %>
+        <%= f.text_field(:auto_id) %>
+	</div>
       
-    </table>
+      <div class="field">
+        <%= f.label(:refid, "ArchivesSpace RefID") %>
+        <%= f.text_field(:refid) %>
+      </div>
+      <div class="field">
+        <%= f.label(:display_title, "Component") %>
+        <%= f.text_field(:display_title) %>
+		</div>
+		<div class="field">
+        <%= f.label(:resource) %>
+        <%= f.text_field(:resource) %>
+      </div>
+      <div class="field">
+        <%= f.label(:format) %>
+        <%= f.select(:format, ["CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
+      </div>
+      <div class="field">
+        <%= f.label(:status, "Transfer Status") %>
+        <%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %>
+		</div>
+		<div class="field">
+        <%= f.label(:method, "Transfer Method") %>
+        <%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %>
+      </div>
+      <div class="field">
+        <%= f.label(:transfer_date, "Date Transferred") %>
+        <%= f.date_field(:transfer_date) %>
+		</div>
+      <div class="field">
+        <%= f.label(:disposition, "Item Disposition") %>
+        <%= f.select(:disposition, ["Retain", "Destroy"]) %>
+      </div>
+     <div class="field"> 
+        <%= f.label(:notes) %>
+        <%= f.text_area(:notes, :size => "40x5") %>
+      </div>
+      
+</div>

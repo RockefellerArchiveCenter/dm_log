@@ -1,7 +1,11 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="dm_items new">
-  <h2>New Digital Media Item</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Update Digital Media Item</h2>
+  </div>
+<div class="panel-body">
 
   <%= form_for(:dm_item, :url => {:action => 'create'}) do |f| %>
   <%= render(:partial => "form", :locals => {:f => f}) %>
@@ -10,4 +14,5 @@
     </div>
 
   <% end %>
+</div>
 </div>

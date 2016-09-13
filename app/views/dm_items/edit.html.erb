@@ -2,8 +2,10 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="dm_items edit">
-  <h2>Update DmItem</h2>
-
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Update Digital Media Item</h2>
+  </div>
   <%= form_for(:dm_item, :url => {:action => 'update', :id => @dm_item.id}) do |f| %>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>

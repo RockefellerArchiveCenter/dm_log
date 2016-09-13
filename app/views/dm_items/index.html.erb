@@ -1,11 +1,16 @@
 <% @page_title = "Index" %>
 <div class="dm_items index">
-  <h2>Digital Media Items</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Digital Media Items</h2>
+  </div>
 
-  <%= link_to("Add Digital Media Item", {:action => 'new'}, :class => 'action new') %>
+  
 
-  <div><%= pluralize(@dm_items.size, 'digital media item') %> found</div>
-  <table class="listing" summary="Digital media item list">
+  <div class="panel-body">
+	  
+  
+  <table class="table table-striped" summary="Digital media item list">
     <tr class="header">
       <th>ID</th>
       <th>Format</th>
@@ -34,4 +39,6 @@
     </tr>
     <% end %>
   </table>
+  <%= link_to("Add Digital Media Item", {:action => 'new'}, :class => 'action new') %>
+  </div>
 </div>
