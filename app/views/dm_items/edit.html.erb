@@ -3,10 +3,7 @@
 <br/>
 <br/>
 <div class="dm_items edit">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2 class="panel-title">Update Digital Media Item</h2>
-  </div>
+      <h2>Update Digital Media Item</h2>
   <%= form_for(:dm_item, :url => {:action => 'update', :id => @dm_item.id}) do |f| %>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>

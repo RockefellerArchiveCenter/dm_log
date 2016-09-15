@@ -1,54 +1,70 @@
-    <% if @dm_item.errors.any? %>
-      <div id="error_explanation">
-        <p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
-        <ul>
-          <% @dm_item.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-  <% end %>
-<div class="panel-body">
-	<div class="field">
-        <%= f.label(:auto_id, "ID") %>
-        <%= f.text_field(:auto_id) %>
+<% if @dm_item.errors.any? %>
+	<div id="error_explanation">
+		<p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
+		<ul>
+			<% @dm_item.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
 	</div>
-      
-      <div class="field">
-        <%= f.label(:refid, "ArchivesSpace RefID") %>
-        <%= f.text_field(:refid) %>
-      </div>
-      <div class="field">
-        <%= f.label(:display_title, "Component") %>
-        <%= f.text_field(:display_title) %>
-		</div>
-		<div class="field">
-        <%= f.label(:resource) %>
-        <%= f.text_field(:resource) %>
-      </div>
-      <div class="field">
-        <%= f.label(:format) %>
-        <%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
-      </div>
-      <div class="field">
-        <%= f.label(:status, "Transfer Status") %>
-        <%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %>
-		</div>
-		<div class="field">
-        <%= f.label(:method, "Transfer Method") %>
-        <%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %>
-      </div>
-      <div class="field">
-        <%= f.label(:transfer_date, "Date Transferred") %>
-        <%= f.date_select(:transfer_date, :end_year => Time.now.year+1, :order => [:month, :day, :year], :include_blank => true,) %>
-		</div>
-      <div class="field">
-        <%= f.label(:disposition, "Item Disposition") %>
-        <%= f.select(:disposition, ["Retain", "Destroy"]) %>
-      </div>
-     <div class="field"> 
-        <%= f.label(:notes) %>
-        <%= f.text_area(:notes, :size => "40x5") %>
-      </div>
-      
+<% end %>
+
+<div class="form-group">
+	<%= f.label(:auto_id, "ID", class: "control-label") %>
+		<%= f.text_field(:auto_id, class: "form-control") %>
+
 </div>
+
+<div class="form-group">
+	<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label") %>
+	
+		<%= f.text_field(:refid, class: "form-control") %>
+	
+</div>
+
+<div class="form-group">
+	<%= f.label(:display_title, "Component", class: "control-label") %>
+	
+		<%= f.text_field(:display_title, class: "form-control") %>
+
+</div>
+
+<div class="form-group">
+	<%= f.label(:resource) %>
+	
+		<%= f.text_field(:resource, class: "form-control") %>
+</div>
+
+<div class="form-group">
+	<%= f.label(:format) %>
+	
+	<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
+</div>
+
+
+<div class="form-group">
+	<%= f.label(:status, "Transfer Status") %>
+	
+	<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %>
+</div>
+
+<div class="form-group">
+	<%= f.label(:method, "Transfer Method") %>
+	
+		<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %>
+</div>
+
+<div class="form-group">
+	<%= f.label(:transfer_date, "Date Transferred") %>
+	<%= f.date_select(:transfer_date, :end_year => Time.now.year+1, :order => [:month, :day, :year], :include_blank => true,) %>
+</div>
+
+<div class="form-group">
+<%= f.label(:disposition, "Item Disposition") %>
+<%= f.select(:disposition, ["Retain", "Destroy"]) %>
+</div>
+
+<div class="form-group"> 
+	<%= f.label(:notes) %>
+	<%= f.text_area(:notes, :size => "40x5") %>
+</div>    
