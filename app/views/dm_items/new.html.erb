@@ -10,9 +10,6 @@
   <%= form_for(:dm_item, :url => {:action => 'create'}) do |f| %>
 
   <%= render(:partial => "form", :locals => {:f => f}) %>
-    <div class="form-buttons">
-      <%= submit_tag("Add Digital Media Item", :class => "btn btn-default") %>
-    </div>
 
   <% end %>
   <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
