@@ -2,4 +2,6 @@
 
 require_relative 'config/environment'
 
+require ::File.expand_path('../config/environment', __FILE__)
+
 run Rails.application

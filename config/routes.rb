@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'dm_items/delete'
   
-  get 'dm_items/:refid' => 'dm_item#refid'
+  get 'dm_items/:refid' => 'dm_item#findById'
 
   root 'dm_items#index'
   

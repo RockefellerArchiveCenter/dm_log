@@ -9,4 +9,5 @@ class DmItem < ApplicationRecord
   validates_presence_of :status
   
   scope :sorted, lambda { order("dm_items.created_at ASC") }
+  
 end
