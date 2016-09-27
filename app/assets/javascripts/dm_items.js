@@ -3,6 +3,9 @@ $(document).on("turbolinks:load", function() {
 	console.log("load");
 });
 
+var token = "5c05bf8d216a8eb6071d25b4b3748d3e10fc703b9e3ccb579c055f1c6dc6fcb7";
+
+var baseURL = "http://192.168.50.7:8089"
 
 $(document).on('click', '#find_in_as', function(e) {
 //	console.log("click!");
@@ -41,9 +44,9 @@ function getResults(data, refid) {
     type: "GET",
     dataType: "json",
     beforeSend: function(request) {
-      request.setRequestHeader("X-ArchivesSpace-Session", "5c05bf8d216a8eb6071d25b4b3748d3e10fc703b9e3ccb579c055f1c6dc6fcb7");
+      request.setRequestHeader("X-ArchivesSpace-Session", token);
     },
-    url: "http://192.168.50.7:8089/repositories/2/find_by_id/archival_objects?",
+    url: baseURL + "/repositories/2/find_by_id/archival_objects?",
     data: data,
     success: function(results) {
       if (results["archival_objects"].length < 1) {
@@ -69,9 +72,9 @@ function getData(uri) {
     type: "GET",
     dataType: "json",
     beforeSend: function(request) {
-      request.setRequestHeader("X-ArchivesSpace-Session", "5c05bf8d216a8eb6071d25b4b3748d3e10fc703b9e3ccb579c055f1c6dc6fcb7");
+      request.setRequestHeader("X-ArchivesSpace-Session", token);
     },
-    url: "http://192.168.50.7:8089" + uri,
+    url: baseURL + uri,
     success: function(data) {
       if (data["jsonmodel_type"] == "resource") {
         console.log(data["title"] + ' (' + data["id_0"] + ')');
