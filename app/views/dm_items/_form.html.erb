@@ -54,7 +54,7 @@
 
 <div class="form-group">
 	<%= f.label(:transfer_date, "Date Transferred") %>
-	<%= f.date_select(:transfer_date, :end_year => Time.now.year+1, :order => [:month, :day, :year], :include_blank => true,) %>
+	<%= f.date_select(:transfer_date, :start_year => 2014, :end_year => Time.now.year, :order => [:month, :day, :year], :include_blank => true,) %>
 </div>
 
 <div class="form-group">

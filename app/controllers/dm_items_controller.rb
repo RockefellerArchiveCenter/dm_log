@@ -8,7 +8,7 @@ class DmItemsController < ApplicationController
   end
 
   def new
-    @dm_item = DmItem.new({:auto_id => "default"})
+    @dm_item = DmItem.new()
   end
   
 =begin
