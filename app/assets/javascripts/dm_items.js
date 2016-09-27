@@ -3,9 +3,11 @@ $(document).on("turbolinks:load", function() {
 	console.log("load");
 });
 
-var token = "5c05bf8d216a8eb6071d25b4b3748d3e10fc703b9e3ccb579c055f1c6dc6fcb7";
+// Non-expiring session token for an AS user
+var token = "";
 
-var baseURL = "http://192.168.50.7:8089"
+// Base url for your ArchivesSpace instance, including the backend port number
+var baseURL = "http://localhost:8089"
 
 $(document).on('click', '#find_in_as', function(e) {
 //	console.log("click!");
