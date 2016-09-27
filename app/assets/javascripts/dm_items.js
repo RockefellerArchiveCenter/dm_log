@@ -20,6 +20,35 @@ $(document).on('click', '#find_in_as', function(e) {
 	getResults(params, refid);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+	var transferStatus = document.getElementById('dm_item_status');
+	
+	var transferMethod = document.getElementById('dm_item_method');
+	
+	var transferYear = document.getElementById('dm_item_transfer_date_1i');
+	
+	var transferMonth = document.getElementById('dm_item_transfer_date_2i');
+	
+	var transferDay = document.getElementById('dm_item_transfer_date_3i');
+	
+	transferMethod.disabled = true;
+	
+	transferStatus.addEventListener('change', function() {
+	
+		if (transferStatus.value === 'Not Transferred') {
+			transferMethod.disabled = true;
+			transferYear.disabled = true;
+			transferMonth.disabled = true;
+			transferDay.disabled = true;
+		} else {
+			transferMethod.disabled = false;
+			transferYear.disabled = false;
+			transferMonth.disabled = false;
+			transferDay.disabled = false;
+		}
+	
+	});
+});
 
 function generateId() {
 	if (document.getElementById('dm_item_auto_id').value == "") {

@@ -1,6 +1,6 @@
 class DmItem < ApplicationRecord
   
-  validates_presence_of :auto_id
+  validates :auto_id, :presence => true, :uniqueness => true
   
   validates_presence_of :refid
   

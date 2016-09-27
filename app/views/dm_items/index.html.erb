@@ -2,13 +2,8 @@
 <br/>
 <br/>
 <div class="dm_items index">
-  <div class="panel panel-default">
-    <div class="panel-heading">
       <h2 class="panel-title">Digital Media Items</h2>
-  </div>
-
-  <div class="panel-body">
-  <table class="table table-striped" summary="Digital media item list">
+  <table class="table table-hover" summary="Digital media item list">
     <tr class="header">
       <th>ID</th>
       <th>Format</th>
@@ -32,11 +27,11 @@
 	  <td><%= dm_item.display_title %></td>
 	  <td><%= dm_item.resource %></td>
       <td class="actions">
-        <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'action edit') %>
+        <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-default') %>
       </td>
     </tr>
     <% end %>
   </table>
-  <%= link_to("Add Digital Media Item", {:action => 'new'}, :class => 'action new') %>
-  </div>
+  <%= link_to("Add Digital Media Item", {:action => 'new'}, :class => 'btn btn-primary') %>
+  
 </div>

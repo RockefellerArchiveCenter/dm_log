@@ -1,5 +1,5 @@
 <% if @dm_item.errors.any? %>
-	<div id="error_explanation">
+	<div id="error_explanation" class="text-danger">
 		<p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
 		<ul>
 			<% @dm_item.errors.full_messages.each do |msg| %>
@@ -67,4 +67,4 @@
 	<%= f.text_area(:notes, :size => "40x5") %>
 </div> -->   
 
-<%= submit_tag("Submit", :class => "btn btn-default") %>
+<%= submit_tag("Save", :class => "btn btn-primary", :id => "submit-button") %>
