@@ -5,12 +5,12 @@ $(document).on("turbolinks:load", function() {
 
 
 $(document).on('click', '#find_in_as', function(e) {
-	console.log("click!");
+//	console.log("click!");
 	var refid = document.getElementById('dm_item_refid').value;
 	generateId();
-	console.log(refid);
+//	console.log(refid);
 	var params = "ref_id[]=" + refid;
-	console.log(params);
+//	console.log(params);
 	e.preventDefault();
 	getResults(params, refid);
 });
@@ -18,7 +18,7 @@ $(document).on('click', '#find_in_as', function(e) {
 
 function generateId() {
 	if (document.getElementById('dm_item_auto_id').value == "") {
-		console.log('no id');
+//		console.log('no id');
 		var auto_id = createId()
 		document.getElementById('dm_item_auto_id').value = auto_id
 	} else {
@@ -36,7 +36,7 @@ function createId() {
 
 function getResults(data, refid) {
 //	console.log(data)
-  console.log("getResults started")
+//  console.log("getResults started")
 	$.ajax({
     type: "GET",
     dataType: "json",

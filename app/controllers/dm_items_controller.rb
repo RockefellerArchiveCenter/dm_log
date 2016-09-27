@@ -11,19 +11,6 @@ class DmItemsController < ApplicationController
     @dm_item = DmItem.new()
   end
   
-=begin
-  :auto_id
-  :format
-  :status
-  :method
-  :transfer_date
-  :disposition
-  :notes
-  :refid
-  :display_title
-  :resource
-=end
-  
   def create
     # Instantiate a new object using form parameters
     @dm_item = DmItem.new(dm_items_params)
