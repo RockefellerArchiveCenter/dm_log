@@ -1,3 +1,4 @@
+<%= form_for(@dm_item) do |f| %>
 <% if @dm_item.errors.any? %>
 	<div id="error_explanation" class="text-danger">
 		<p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
@@ -54,7 +55,7 @@
 
 <div class="form-group">
 	<%= f.label(:transfer_date, "Date Transferred") %>
-	<%= f.date_select(:transfer_date, :start_year => 2014, :end_year => Time.now.year, :order => [:month, :day, :year], :include_blank => true,) %>
+	<%= f.date_field(:transfer_date, class: "form-control") %>
 </div>
 
 <div class="form-group">
@@ -68,3 +69,5 @@
 </div> -->   
 
 <%= submit_tag("Save", :class => "btn btn-primary", :id => "submit-button") %>
+
+<% end %>

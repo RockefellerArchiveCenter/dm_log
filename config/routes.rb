@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  get 'dm_items/index'
-
-  get 'dm_items/show'
-
-  get 'dm_items/new'
-
-  get 'dm_items/edit'
-
-  get 'dm_items/delete'
-  
-  get 'dm_items/:refid' => 'dm_item#findById'
+  resources :dm_items
 
   root 'dm_items#index'
   

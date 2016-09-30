@@ -4,10 +4,10 @@
 <div class="dm_items new">
       <h2 class="panel-title">Add Digital Media Item</h2>
 
-  <%= form_for(:dm_item, :url => {:action => 'create'}) do |f| %>
+  
 
-  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= render(:partial => "form") %>
 
-  <% end %>
-  <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+  
+  <%= link_to("<< Back to List", dm_items_path, :class => 'back-link') %>
 </div>
