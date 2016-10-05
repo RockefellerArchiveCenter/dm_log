@@ -18,7 +18,7 @@ class DmItemsController < ApplicationController
     if @dm_item.save
     # If save succees, redirect to the index action
     flash[:notice] = "Item added successfully."
-    redirect_to(:action => "index")
+    redirect_to(:action => 'edit', :id => @dm_item.id)
   else
     # If save fails, redisplay the form so user can fix problems
     render("new")

@@ -68,6 +68,7 @@
 	<%= f.text_area(:notes, :size => "40x5") %>
 </div> -->   
 
-<%= submit_tag("Save", :class => "btn btn-primary", :id => "submit-button") %>
+<%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button") %>
+<%= link_to("New", {:action => 'new'}, :class => 'btn btn-primary') %>
 
 <% end %>

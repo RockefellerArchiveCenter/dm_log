@@ -6,6 +6,7 @@
       <h2>Update Digital Media Item</h2>
 
     <%= render(:partial => "form") %>
+	<%= link_to("New", {:action => 'new'}, :class => 'btn btn-primary', :disabled => false) %>
 
   <%= link_to("<< Back to List", dm_items_path, :class => 'back-link') %>
 </div>
