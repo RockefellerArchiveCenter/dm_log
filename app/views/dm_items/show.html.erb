@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="dm_items show">
-  <h2>Show DmItem</h2>
+  <h2>Digital Media Item</h2>
 <!--
   :auto_id
   :format
@@ -14,7 +14,7 @@
   :display_title
   :resource
 -->
-  <table summary="DmItem detail view">
+  <table class="table table-hover">
     <tr>
       <th>ID</th>
       <td><%= @dm_item.auto_id %></td>
@@ -24,7 +24,7 @@
       <td><%= @dm_item.status %></td>
     </tr>
     <tr>
-      <th>Method</th>
+      <th>Transfer Method</th>
       <td><%= @dm_item.method %></td>
     </tr>
     <tr>
@@ -62,3 +62,10 @@
   </table>
 
 </div>
+
+
+<%= link_to("Edit", {:action => 'edit'}, :class => 'btn btn-primary') %>
+
+<%= link_to("New", {:action => 'new'}, :class => 'btn btn-primary') %>
+
+<%= link_to("Index", dm_items_path, :class => 'btn btn-primary') %>
