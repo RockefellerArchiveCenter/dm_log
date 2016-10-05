@@ -20,6 +20,18 @@
       <td><%= @dm_item.auto_id %></td>
     </tr>
     <tr>
+      <th>ArchivesSpace RefID</th>
+      <td><%= @dm_item.refid %></td>
+    </tr>
+    <tr>
+      <th>Parent Component</th>
+      <td><%= @dm_item.display_title %></td>
+    </tr>
+    <tr>
+      <th>Parent Resource</th>
+      <td><%= @dm_item.resource %></td>
+    </tr>
+    <tr>
       <th>Transfer Status</th>
       <td><%= @dm_item.status %></td>
     </tr>
@@ -36,28 +48,17 @@
       <td><%= @dm_item.disposition %></td>
     </tr>
     <tr>
-      <th>Notes</th>
+<!--      <th>Notes</th>
       <td><%= @dm_item.notes %></td>
     </tr>
-    <tr>
-      <th>ArchivesSpace RefID</th>
-      <td><%= @dm_item.refid %></td>
-    </tr>
-    <tr>
-      <th>Parent Component</th>
-      <td><%= @dm_item.display_title %></td>
-    </tr>
-    <tr>
-      <th>Parent Resource</th>
-      <td><%= @dm_item.resource %></td>
-    </tr>
+-->
     <tr>
       <th>Created</th>
-      <td><%= @dm_item.created_at %></td>
+      <td><%= @dm_item.created_at.strftime("%x %X") %></td>
     </tr>
     <tr>
       <th>Updated</th>
-      <td><%= @dm_item.updated_at %></td>
+      <td><%= @dm_item.updated_at.strftime("%x %X") %></td>
     </tr>
   </table>
 
