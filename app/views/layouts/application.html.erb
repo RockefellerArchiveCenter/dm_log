@@ -10,15 +10,15 @@
 
   <body>
 	  <header>
-	        <%= render 'layouts/navigation' %>
+	        <h1>Digital Media Log</h1>
 	  </header>
-      <div id="main">
-        <% if !flash[:notice].blank? %>
-          <div class="notice">
-            <%= flash[:notice] %>
-          </div>
-        <% end %>
     <%= yield %>
+    <div id="main">
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>
