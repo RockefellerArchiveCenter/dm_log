@@ -11,19 +11,6 @@ class DmItemsController < ApplicationController
     @dm_item = DmItem.new()
   end
   
-  def create_new
-    # Instantiate a new object using form parameters
-    @dm_item = DmItem.new(dm_items_params)
-    # Save the object
-    if @dm_item.save
-    # If save succees, redirect to the index action
-    flash[:notice] = "Item added successfully."
-    redirect_to(:action => 'new')
-  else
-    # If save fails, redisplay the form so user can fix problems
-    render("new")
-  end
-  end
   
   def create
     # Instantiate a new object using form parameters

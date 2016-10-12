@@ -1,22 +1,32 @@
+<% @page_title = " | Sign Up" %>
 
-<h1>Users#new</h1>
 <%= form_for(@user) do |f| %>
 
+<% if @user.errors.any? %>
+	<div id="error_explanation" class="text-danger">
+		<p><%= pluralize(@user.errors.count, "error") %> prohibited this record from being saved:</p>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
 <div class="form-group">
-	<%= f.label(:username) %>
-	<%= f.text_field(:username) %>
+	<%= f.label(:email, class: "control-label") %>
+	<%= f.email_field(:email, class: "form-control") %>
 </div>
 
 <div class="form-group">
-	<%= f.label(:email) %>
-	<%= f.text_field(:email) %>
-</div>
-
-<div class="form-group">
-	Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
+	<label class="control-label">Password</label>
+	<%= f.password_field :password, class: "form-control" %>
 </div>
  
+ <div class="form-group">
+ 	<label class="control-label">Password Confirmation</label>
+ 	<%= f.password_field :password_confirmation, class: "form-control" %>
+ </div>
 
 <%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button") %>
 
