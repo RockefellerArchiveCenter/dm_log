@@ -11,5 +11,9 @@ class SessionsController < ApplicationController
       render "new"
     end 
   end
+  
+  def destroy
+    delete 'logout' => 'sessions#destroy'
+  end
 
 end
