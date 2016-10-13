@@ -9,56 +9,56 @@
 		</ul>
 	</div>
 <% end %>
-
-<div class="form-group">
+<div class="form-inline col-xs-10">
+<div class="form-group col-xs-12">
 	<%= f.label(:auto_id, "ID", class: "control-label") %>
 	<%= f.text_field(:auto_id, class: "form-control") %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label") %>
 	<%= f.text_field(:refid, class: "form-control") %>
 	<button type="button" class="btn btn-default" id="find_in_as">Find in ArchivesSpace</button>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:display_title, "Component", class: "control-label") %>
 	
 		<%= f.text_field(:display_title, class: "form-control") %>
 
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:resource) %>
 	
 		<%= f.text_field(:resource, class: "form-control") %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:format) %>
 	
 	<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
 </div>
 
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:status, "Transfer Status") %>
 	
 	<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:method, "Transfer Method") %>
 	
 		<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 	<%= f.label(:transfer_date, "Date Transferred") %>
 	<%= f.date_field(:transfer_date, class: "form-control") %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-xs-12">
 <%= f.label(:disposition, "Item Disposition") %>
 <%= f.select(:disposition, ["Retain", "Destroy"]) %>
 </div>
@@ -69,7 +69,6 @@
 </div> -->   
 
 <%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button") %>
-<%= link_to("Save and add new", :action => "new", :class => "btn btn-primary") %>
 <%= link_to("Index", dm_items_path, :class => 'btn btn-primary') %>
-
+</div>
 <% end %>
