@@ -1,5 +1,11 @@
 <%= form_for(:session, url: login_path) do |f| %> 
+<div class="form-inline col-xs-10">
+	<div class="field">
   <%= f.email_field :email, :placeholder => "Email" %> 
+</div>
+<div class="field">
    <%= f.password_field :password, :placeholder => "Password" %> 
+</div>
    <%= f.submit "Log in", class: "btn-submit" %>
+</div>
 <% end %>
