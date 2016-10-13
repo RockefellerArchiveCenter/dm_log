@@ -1,4 +1,7 @@
 class DmItemsController < ApplicationController
+  
+  before_action :require_user, only: [:index, :show]
+  
   def index
     @dm_items = DmItem.sorted
   end
