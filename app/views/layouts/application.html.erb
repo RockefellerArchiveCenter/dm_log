@@ -12,6 +12,18 @@
 	  <header>
 	        <h1>Digital Media Log</h1>
 	  </header>
+	  <% if current_user %> 
+	    <ul> 
+	      <li><%= current_user.email %></li> 
+	      <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+	    </ul> 
+	  <% else %> 
+	    <ul> 
+	      <li><%= link_to "Login", 'login' %></a></li> 
+	      <li><%= link_to "Signup", 'signup' %></a></li> 
+	    </ul> 
+	  <% end %>
+	  
     <%= yield %>
     <div id="main">
       <% if !flash[:notice].blank? %>
