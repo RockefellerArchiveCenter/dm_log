@@ -44,13 +44,13 @@
 <div class="form-group col-xs-12">
 	<%= f.label(:status, "Transfer Status") %>
 	
-	<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"] ) %>
+	<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], class: "form-control") %>
 </div>
 
 <div class="form-group col-xs-12">
 	<%= f.label(:method, "Transfer Method") %>
 	
-		<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"]) %>
+		<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], class: "form-control") %>
 </div>
 
 <div class="form-group col-xs-12">
@@ -60,7 +60,7 @@
 
 <div class="form-group col-xs-12">
 <%= f.label(:disposition, "Item Disposition") %>
-<%= f.select(:disposition, ["Retain", "Destroy"]) %>
+<%= f.select(:disposition, ["Retain", "Destroy"], class: "form-control") %>
 </div>
 
 <!-- ><div class="form-group"> 
