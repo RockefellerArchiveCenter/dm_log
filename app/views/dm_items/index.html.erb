@@ -3,6 +3,16 @@
 <br/>
 <div class="dm_items index">
       <h2 class="panel-title">Digital Media Items</h2>
+	  
+	  <%= form_tag dm_items_path, :method => "get" do %>
+	  <div class="form-inline col-xs-10">
+	  <div class="form-group col-xs-12">
+		  <%= text_field_tag :search, params[:search], :class => "form-control" %>
+		  <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+	  </div>
+  </div>
+	  <% end %>
+	  
   <table class="table table-hover" summary="Digital media item list">
     <tr class="header">
       <th>ID</th>

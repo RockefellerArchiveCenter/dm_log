@@ -3,7 +3,7 @@ class DmItemsController < ApplicationController
   before_action :require_user, only: [:index, :show]
   
   def index
-    @dm_items = DmItem.sorted
+    @dm_items = DmItem.search(params[:search])
   end
 
   def show
@@ -55,7 +55,7 @@ class DmItemsController < ApplicationController
   private 
   
   def dm_items_params
-    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource)
+    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search)
 end
 
 end
