@@ -10,11 +10,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
+	  </div>
+	  <div>
+	  <ul class="nav navbar-nav navbar-right">
+	  <% if current_user %> 
+	    <li><p class="navbar-text"><%= current_user.email %></p></li>
+		<li><%= link_to "Log out", logout_path, method: "delete", :class => 'navbar-link'  %> </li>
+	  <% else %> 
+	  	<li><%= link_to "Login", 'login', :class => 'navbar-link'  %></a></li>
+		<li><%= link_to "Signup", 'signup', :class => 'navbar-link'  %></a> </li>
+	  <% end %>
+	  
+  </ul>   
+</div>
   </div>
 </nav>
