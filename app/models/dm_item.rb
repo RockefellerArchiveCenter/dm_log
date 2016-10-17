@@ -12,7 +12,7 @@ class DmItem < ApplicationRecord
   
   def self.search(term)
     if term
-      where('auto_id LIKE ?', "%#{term}%")
+      where('resource LIKE ?', "%#{term}%")
     else
       all
     end
