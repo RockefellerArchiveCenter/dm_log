@@ -16,10 +16,12 @@ Because the application makes HTTP using Javascript, CORS needs to be implemente
 Edit app/assets/javascripts/dm_items to include the base url for your ArchivesSpace instance and a non-expiring session token for an AS user.
 
 Run PostgreSQL, and execute the following commands in your terminal:
-```$ git clone https://github.com/RockefellerArchiveCenter/dm_log.git
+```
+$ git clone https://github.com/RockefellerArchiveCenter/dm_log.git
 $ cd dm_log
 $ bundle install
-$ rails s```
+$ rails s
+```
 
 ## Contributing
 
