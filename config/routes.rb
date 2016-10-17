@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   resources :users
 
-  resources :dm_items
+  resources :dm_items, except: :destroy
 
   root 'dm_items#index'
   
