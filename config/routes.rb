@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   delete 'logout' => 'sessions#destroy'
   
+  get 'dm_items/:id/json' => 'api/v0#dm_item'
+  
   resources :users
 
   resources :dm_items, except: :destroy
