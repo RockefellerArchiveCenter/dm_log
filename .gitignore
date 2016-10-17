@@ -16,4 +16,3 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-/app/assets/javascripts/dm_items.js
