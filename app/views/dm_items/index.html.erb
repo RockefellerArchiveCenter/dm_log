@@ -6,7 +6,7 @@
       <%= form_tag dm_items_path, :class => "form-inline", :method => "get" do %>
     	  <div class="form-group">
     		  <%= text_field_tag :search, params[:search], :class => "form-control" %>
-    		  <%= submit_tag "Filter by Resource Title", :name => nil, :class => "btn btn-primary" %>
+    		  <%= submit_tag "Filter by Parent Resource", :name => nil, :class => "btn btn-primary" %>
     	  </div>
   	  <% end %>
 
