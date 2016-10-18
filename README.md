@@ -13,7 +13,14 @@ Inspired by https://github.com/NYULibraries/medialog
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
 
 ## Installation
-Edit app/assets/javascripts/dm_items to include the base url for your ArchivesSpace instance and a non-expiring session token for an AS user.
+Create `app/assets/javascripts/application_settings.js` with the base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
+```
+// Non-expiring session token for an AS user
+var token = "token";
+
+// Base url for your ArchivesSpace instance, including the backend port number
+var baseURL = "http://localhost:8089"
+```
 
 To install locally:
 
