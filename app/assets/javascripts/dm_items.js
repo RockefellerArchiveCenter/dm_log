@@ -3,6 +3,10 @@ $(document).on("turbolinks:load", function() {
 	console.log("load");
 });
 
+$(document).ready(function() {
+	generateId();
+});
+
 // Non-expiring session token for an AS user
 var token = "";
 
@@ -12,7 +16,6 @@ var baseURL = "http://localhost:8089"
 $(document).on('click', '#find_in_as', function(e) {
 //	console.log("click!");
 	var refid = document.getElementById('dm_item_refid').value;
-	generateId();
 //	console.log(refid);
 	var params = "ref_id[]=" + refid;
 //	console.log(params);
