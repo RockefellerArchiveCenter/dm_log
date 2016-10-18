@@ -4,10 +4,10 @@ $(document).on("turbolinks:load", function() {
 });
 
 // Non-expiring session token for an AS user
-var token = "";
+var token = "5e02cfee9805e081efe2ca67ae9751390f15907af235faa87c6d2ba7f06fd97c";
 
 // Base url for your ArchivesSpace instance, including the backend port number
-var baseURL = "http://localhost:8089"
+var baseURL = "http://192.168.50.7:8089"
 
 $(document).on('click', '#find_in_as', function(e) {
 //	console.log("click!");
