@@ -12,14 +12,14 @@
 	<div class="form-group">
 		<%= f.label(:auto_id, "ID", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.text_field(:auto_id, :class => "form-control") %>
+			<%= f.text_field(:auto_id, :class => "form-control", :required => true) %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label col-xs-3") %>
 		<div class="col-xs-5">
-			<%= f.text_field(:refid, class: "form-control") %>
+			<%= f.text_field(:refid, class: "form-control", :required => true) %>
 		</div>
 		<div class="col-xs-3">
 			<button type="button" class="btn btn-default" id="find_in_as">Find in ArchivesSpace</button>
@@ -29,21 +29,21 @@
 	<div class="form-group">
 		<%= f.label(:display_title, "Component", class: "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.text_field(:display_title, class: "form-control") %>
+			<%= f.text_field(:display_title, class: "form-control", :required => true) %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:resource, :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.text_field(:resource, class: "form-control") %>
+			<%= f.text_field(:resource, class: "form-control", :required => true) %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:format, :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"], {}, {:class => "form-control"} ) %>
+			<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"], {}, {:class => "form-control"}) %>
 		</div>
 	</div>
 
@@ -51,14 +51,14 @@
 	<div class="form-group">
 		<%= f.label(:status, "Transfer Status", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], {}, {:class => "form-control"}) %>
+			<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], {}, {:class => "form-control") %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:method, "Transfer Method", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], {}, {:class => "form-control"}) %>
+			<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], {}, {:class => "form-control") %>
 		</div>
 	</div>
 
