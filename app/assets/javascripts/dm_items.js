@@ -4,7 +4,9 @@ $(document).on("turbolinks:load", function() {
 });
 
 $(document).ready(function() {
-	generateId();
+	if($(".dm_items.new").length) {
+		generateId();
+	}
 });
 
 $(document).on('click', '#find_in_as', function(e) {
