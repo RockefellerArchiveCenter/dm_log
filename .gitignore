@@ -16,3 +16,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore ArchivesSpace configurations in JS settings file
+*application_settings.js
