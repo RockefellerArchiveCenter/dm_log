@@ -1,11 +1,13 @@
 <% @page_title = " | Edit Item" %>
+<div class="dm_items edit col-xs-6 col-xs-offset-3">
+  <h1>Update Digital Media Item</h1>
 
-<br/>
-<br/>
-<div class="dm_items edit">
-      <h2>Update Digital Media Item</h2>
+  <%= render(:partial => "form") %>
 
-    <%= render(:partial => "form") %>
-	<p>Created: <%= @dm_item.created_at.strftime("%x %X") %></p>
-	<p>Last updated: <%= @dm_item.updated_at.strftime("%x %X") %></p>
+  <div class="col-xs-12">
+    <p>&nbsp;</p>
+    <p class="text-muted">Created: <%= @dm_item.created_at.strftime("%x %X") %></p>
+    <p class="text-muted">Last updated: <%= @dm_item.updated_at.strftime("%x %X") %></p>
+  </div>
+
 </div>

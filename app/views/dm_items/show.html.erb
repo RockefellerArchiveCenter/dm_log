@@ -1,5 +1,5 @@
-<div class="dm_items show">
-  <h2>Digital Media Item</h2>
+<div class="dm_items show col-xs-6 col-xs-offset-3">
+  <h1>Digital Media Item</h1>
 <!--
   :auto_id
   :format
@@ -60,11 +60,10 @@
     </tr>
   </table>
 
+  <%= link_to("Edit", {:action => 'edit'}, :class => 'btn btn-warning') %>
+
+  <%= link_to("New", {:action => 'new'}, :class => 'btn btn-success') %>
+
+  <%= link_to("Index", dm_items_path, :class => 'btn btn-primary') %>
+
 </div>
-
-
-<%= link_to("Edit", {:action => 'edit'}, :class => 'btn btn-primary') %>
-
-<%= link_to("New", {:action => 'new'}, :class => 'btn btn-primary') %>
-
-<%= link_to("Index", dm_items_path, :class => 'btn btn-primary') %>

@@ -1,4 +1,4 @@
-<%= form_for(@dm_item) do |f| %>
+<%= form_for(@dm_item, :html => {:class => "form-horizontal"}) do |f| %>
 <% if @dm_item.errors.any? %>
 	<div id="error_explanation" class="text-danger">
 		<p><%= pluralize(@dm_item.errors.count, "error") %> prohibited this record from being saved:</p>
@@ -9,66 +9,81 @@
 		</ul>
 	</div>
 <% end %>
-<div class="form-inline col-xs-10">
-<div class="form-group col-xs-12">
-	<%= f.label(:auto_id, "ID", class: "control-label") %>
-	<%= f.text_field(:auto_id, class: "form-control") %>
-</div>
+	<div class="form-group">
+		<%= f.label(:auto_id, "ID", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.text_field(:auto_id, :class => "form-control") %>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-	<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label") %>
-	<%= f.text_field(:refid, class: "form-control") %>
-	<button type="button" class="btn btn-default" id="find_in_as">Find in ArchivesSpace</button>
-</div>
+	<div class="form-group">
+		<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label col-xs-3") %>
+		<div class="col-xs-5">
+			<%= f.text_field(:refid, class: "form-control") %>
+		</div>
+		<div class="col-xs-3">
+			<button type="button" class="btn btn-default" id="find_in_as">Find in ArchivesSpace</button>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-	<%= f.label(:display_title, "Component", class: "control-label") %>
-	
-		<%= f.text_field(:display_title, class: "form-control") %>
+	<div class="form-group">
+		<%= f.label(:display_title, "Component", class: "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.text_field(:display_title, class: "form-control") %>
+		</div>
+	</div>
 
-</div>
+	<div class="form-group">
+		<%= f.label(:resource, :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.text_field(:resource, class: "form-control") %>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-	<%= f.label(:resource) %>
-	
-		<%= f.text_field(:resource, class: "form-control") %>
-</div>
-
-<div class="form-group col-xs-12">
-	<%= f.label(:format) %>
-	
-	<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"] ) %>
-</div>
+	<div class="form-group">
+		<%= f.label(:format, :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:format, [nil, "CD", "CD-R", "CD-ROM", "CD-RW", "DVD", "DVD+R", "DVD+R DL", "DVD+RW", "DVD-R", "DVD-RW", "Flash Memory: USB", "Floppy disk: 3 1/2 inch", "Floppy disk: 5 1/4 inch", "Hard Drive", "Hard Drive: eSATA", "Hard Drive: Firewire", "Hard Drive: PATA", "Hard Drive: SCSI", "Hard Drive: USB", "Memory Card", "Minidisc", "Zip disk"], {}, {:class => "form-control"} ) %>
+		</div>
+	</div>
 
 
-<div class="form-group col-xs-12">
-	<%= f.label(:status, "Transfer Status") %>
-	
-	<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], class: "form-control") %>
-</div>
+	<div class="form-group">
+		<%= f.label(:status, "Transfer Status", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], {}, {:class => "form-control"}) %>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-	<%= f.label(:method, "Transfer Method") %>
-	
-		<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], class: "form-control") %>
-</div>
+	<div class="form-group">
+		<%= f.label(:method, "Transfer Method", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], {}, {:class => "form-control"}) %>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-	<%= f.label(:transfer_date, "Date Transferred") %>
-	<%= f.date_field(:transfer_date, class: "form-control") %>
-</div>
+	<div class="form-group">
+		<%= f.label(:transfer_date, "Date Transferred", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.date_field(:transfer_date, {:class => "form-control"}) %>
+		</div>
+	</div>
 
-<div class="form-group col-xs-12">
-<%= f.label(:disposition, "Item Disposition") %>
-<%= f.select(:disposition, ["Retain", "Destroy"], class: "form-control") %>
-</div>
+	<div class="form-group">
+		<%= f.label(:disposition, "Item Disposition", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:disposition, ["Retain", "Destroy"], {}, {:class => "form-control"}) %>
+		</div>
+	</div>
 
-<!-- ><div class="form-group"> 
+<!-- ><div class="form-group">
 	<%= f.label(:notes) %>
 	<%= f.text_area(:notes, :size => "40x5") %>
-</div> -->   
+</div> -->
 
-<%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button") %>
-<%= link_to("Index", dm_items_path, :class => 'btn btn-primary') %>
+<div class="col-xs-9 col-xs-offset-3">
+	<%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button") %>
+	<%= link_to("Cancel", dm_items_path, :class => 'btn btn-danger') %>
 </div>
+
 <% end %>
