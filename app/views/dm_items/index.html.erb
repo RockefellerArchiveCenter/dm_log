@@ -1,18 +1,15 @@
 <% @page_title = " | Index" %>
-<br/>
-<br/>
 <div class="dm_items index">
-      <h2 class="panel-title">Digital Media Items</h2>
-	  
-	  <%= form_tag dm_items_path, :method => "get" do %>
-	  <div class="form-inline col-xs-10">
-	  <div class="form-group col-xs-12">
-		  <%= text_field_tag :search, params[:search], :class => "form-control" %>
-		  <%= submit_tag "Filter by Collection", :name => nil, :class => "btn btn-primary" %>
-	  </div>
-  </div>
-	  <% end %>
-	  
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Digital Media Items</h1>
+      <%= form_tag dm_items_path, :class => "form-inline", :method => "get" do %>
+    	  <div class="form-group">
+    		  <%= text_field_tag :search, params[:search], :class => "form-control" %>
+    		  <%= submit_tag "Filter by Collection", :name => nil, :class => "btn btn-primary" %>
+    	  </div>
+  	  <% end %>
+
   <table class="table table-hover" summary="Digital media item list">
     <tr class="header">
       <th>ID</th>
@@ -28,24 +25,27 @@
       <th>Actions</th>
     </tr>
     <% @dm_items.each do |dm_item| %>
-	<tr class="<%= cycle('odd', 'even') %>"> 
-    <tr>
-      <td><%= dm_item.auto_id %></td>
-      <td><%= dm_item.format %></td>
-	  <td><%= dm_item.status %></td>
-	  <td><%= dm_item.method %></td>
-	  <!-- <td><%= dm_item.transfer_date %></td> -->
-	  <!-- <td><%= dm_item.disposition %></td> -->
-	  <td><%= dm_item.display_title %></td>
-	  <td><%= dm_item.resource %></td>
-	  <td><%= dm_item.created_at.strftime("%x %X") %></td>
-	  <td><%= dm_item.updated_at.strftime("%x %X") %></td>
-      <td class="actions">
-        <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-default') %>
-      </td>
-    </tr>
+    	<tr class="<%= cycle('odd', 'even') %>">
+        <td><%= dm_item.auto_id %></td>
+        <td><%= dm_item.format %></td>
+  	  <td><%= dm_item.status %></td>
+  	  <td><%= dm_item.method %></td>
+  	  <!-- <td><%= dm_item.transfer_date %></td> -->
+  	  <!-- <td><%= dm_item.disposition %></td> -->
+  	  <td><%= dm_item.display_title %></td>
+  	  <td><%= dm_item.resource %></td>
+  	  <td><%= dm_item.created_at.strftime("%x %X") %></td>
+  	  <td><%= dm_item.updated_at.strftime("%x %X") %></td>
+        <td class="actions">
+          <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>
+        </td>
+      </tr>
     <% end %>
   </table>
+
   <%= link_to("Add Digital Media Item", {:action => 'new'}, :class => 'btn btn-primary') %>
-  
+
+    </div>
+  </div>
+
 </div>

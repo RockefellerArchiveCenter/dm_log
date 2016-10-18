@@ -1,11 +1,14 @@
-<%= form_for(:session, url: login_path) do |f| %> 
-<div class="form-inline col-xs-10">
-	<div class="field">
-  <%= f.email_field :email, :placeholder => "Email" %> 
-</div>
-<div class="field">
-   <%= f.password_field :password, :placeholder => "Password" %> 
-</div>
-   <%= f.submit "Log in", class: "btn-submit" %>
+<%= form_for(:session, url: login_path) do |f| %>
+<div class="row">
+	<div class="col-xs-2 col-xs-offset-5">
+		<h1>Log in</h1>
+		<div class="form-group">
+	  <%= f.email_field :email, :placeholder => "Email", :class => "form-control" %>
+	</div>
+	<div class="form-group">
+	   <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
+	</div>
+	   <%= f.submit "Log in", :class => "btn btn-primary" %>
+	</div>
 </div>
 <% end %>

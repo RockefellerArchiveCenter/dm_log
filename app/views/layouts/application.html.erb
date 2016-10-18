@@ -3,7 +3,7 @@
   <head>
     <title>Digital Media Log <%= @page_title %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>	
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 	<%= stylesheet_link_tag("application", :media => "all") %>
   </head>
@@ -12,16 +12,18 @@
 	  <header>
 	        <%= render 'layouts/navigation' %>
 	  </header>
-	  
+
 	  <main role="main">
-	  <div class="container">
-    <%= yield %>
-	
+	  <div class="container-fluid">
+
       <% if !flash[:notice].blank? %>
-        <div class="notice">
+        <div class="alert alert-info">
           <%= flash[:notice] %>
         </div>
       <% end %>
+
+    <%= yield %>
+
 	  </div>
 	  </main>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
