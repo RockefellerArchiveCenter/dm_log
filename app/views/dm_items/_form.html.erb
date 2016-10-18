@@ -17,9 +17,9 @@
 	</div>
 
 	<div class="form-group">
-		<%= f.label(:refid, "ArchivesSpace RefID", class: "control-label col-xs-3") %>
+		<%= f.label(:refid, "ArchivesSpace RefID", :class => "control-label col-xs-3") %>
 		<div class="col-xs-5">
-			<%= f.text_field(:refid, class: "form-control", :required => true) %>
+			<%= f.text_field(:refid, :class => "form-control", :required => true) %>
 		</div>
 		<div class="col-xs-3">
 			<button type="button" class="btn btn-default" id="find_in_as">Find in ArchivesSpace</button>
@@ -27,16 +27,16 @@
 	</div>
 
 	<div class="form-group">
-		<%= f.label(:display_title, "Component", class: "control-label col-xs-3") %>
+		<%= f.label(:display_title, "Component", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.text_field(:display_title, class: "form-control", :required => true) %>
+			<%= f.text_field(:display_title, :class => "form-control", :required => true) %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:resource, :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.text_field(:resource, class: "form-control", :required => true) %>
+			<%= f.text_field(:resource, :class => "form-control", :required => true) %>
 		</div>
 	</div>
 
@@ -51,14 +51,14 @@
 	<div class="form-group">
 		<%= f.label(:status, "Transfer Status", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], {}, {:class => "form-control") %>
+			<%= f.select(:status, ["Not Transferred", "Transferred - Success", "Transferred - Failed"], {}, {:class => "form-control"}) %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label(:method, "Transfer Method", :class => "control-label col-xs-3") %>
 		<div class="col-xs-9">
-			<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], {}, {:class => "form-control") %>
+			<%= f.select(:method, [nil, "Disk Image", "Rip Tracks", "Copy Files"], {}, {:class => "form-control"}) %>
 		</div>
 	</div>
 
