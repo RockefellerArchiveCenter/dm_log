@@ -7,12 +7,6 @@ $(document).ready(function() {
 	generateId();
 });
 
-// Non-expiring session token for an AS user
-var token = "";
-
-// Base url for your ArchivesSpace instance, including the backend port number
-var baseURL = "http://localhost:8089"
-
 $(document).on('click', '#find_in_as', function(e) {
 //	console.log("click!");
 	var refid = document.getElementById('dm_item_refid').value;
