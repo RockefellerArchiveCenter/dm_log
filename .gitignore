@@ -20,4 +20,4 @@
 *application_settings.js
 
 # Ignore DS_Store
-*.DS_Store
+*DS_Store
