@@ -5,11 +5,16 @@ $(document).ready(function() {
 	}
 });
 
-// Non-expiring session token for an AS user
-var token = "5e02cfee9805e081efe2ca67ae9751390f15907af235faa87c6d2ba7f06fd97c";
-
-// Base url for your ArchivesSpace instance, including the backend port number
-var baseURL = "http://192.168.50.7:8089"
+$(document).on("change", "#dm_item_status", function() {
+	var date = new Date();
+	var day = date.getDate();
+	var month = date.getMonth() + 1;
+	var year = date.getFullYear();
+	if (month < 10) month = "0" + month;
+	if (day < 10) day = "0" + day;
+	var today = year + "-" + month + "-" + day;
+	document.getElementById('dm_item_transfer_date').value = today;
+});
 
 $(document).on('click', '#find_in_as', function(e) {
 	e.preventDefault();
