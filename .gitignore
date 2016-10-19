@@ -19,5 +19,8 @@
 # Ignore ArchivesSpace configurations in JS settings file
 *application_settings.js
 
+<<<<<<< HEAD
 # Ignore DS_Store
 *.DS_Store
+=======
+>>>>>>> update .gitignore
