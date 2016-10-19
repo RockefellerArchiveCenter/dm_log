@@ -1,34 +1,32 @@
 
-$(document).on("turbolinks:load", function() {
-	console.log("load");
+$(document).ready(function() {
+	if($(".dm_items.new").length) {
+		generateId();
+	}
 });
 
-// Non-expiring session token for an AS user
-var token = "5e02cfee9805e081efe2ca67ae9751390f15907af235faa87c6d2ba7f06fd97c";
-
-// Base url for your ArchivesSpace instance, including the backend port number
-var baseURL = "http://192.168.50.7:8089"
+$(document).on("change", "#dm_item_status", function() {
+	var date = new Date();
+	var day = date.getDate();
+	var month = date.getMonth() + 1;
+	var year = date.getFullYear();
+	if (month < 10) month = "0" + month;
+	if (day < 10) day = "0" + day;
+	var today = year + "-" + month + "-" + day;
+	document.getElementById('dm_item_transfer_date').value = today;
+});
 
 $(document).on('click', '#find_in_as', function(e) {
-//	console.log("click!");
-	var refid = document.getElementById('dm_item_refid').value;
-	generateId();
-//	console.log(refid);
-	var params = "ref_id[]=" + refid;
-//	console.log(params);
 	e.preventDefault();
+	refid = document.getElementById('dm_item_refid').value;
+	var params = "ref_id[]=" + refid;
 	getResults(params, refid);
 });
 
-
-
 function generateId() {
 	if (document.getElementById('dm_item_auto_id').value == "") {
-//		console.log('no id');
-		var auto_id = createId()
-		document.getElementById('dm_item_auto_id').value = auto_id
-	} else {
-		console.log('has id');
+		var auto_id = createId();
+		document.getElementById('dm_item_auto_id').value = auto_id;
 	}
 }
 
@@ -41,8 +39,6 @@ function createId() {
 }
 
 function getResults(data, refid) {
-//	console.log(data)
-//  console.log("getResults started")
 	$.ajax({
     type: "GET",
     dataType: "json",
@@ -55,17 +51,9 @@ function getResults(data, refid) {
       if (results["archival_objects"].length < 1) {
         console.log("Sorry, I couldn't find anything for " + refid);
       } else {
-		  console.log("VICTORY!!!")
-        $("#refid-search-error").empty().removeClass(function(index, css) {
-          return (css.match(/(^|\s)alert?\S+/g) || []).join(' ');
-        });        var objectURI = results["archival_objects"][0]["ref"];
-		console.log(objectURI)
-        getData(objectURI);
+        getData(results["archival_objects"][0]["ref"]);
       }
-    },
-	always: function(results) {
-		console.log(results)
-	}
+    }
   });
 }
 
@@ -80,11 +68,9 @@ function getData(uri) {
     url: baseURL + uri,
     success: function(data) {
       if (data["jsonmodel_type"] == "resource") {
-        console.log(data["title"] + ' (' + data["id_0"] + ')');
-		document.getElementById('dm_item_resource').value = data["title"] + ' (' + data["id_0"] + ')';
+				document.getElementById('dm_item_resource').value = data["title"] + ' (' + data["id_0"] + ')';
       } else if (data["jsonmodel_type"] == "archival_object") {
-        console.log(data['display_string']);
-		document.getElementById('dm_item_display_title').value = data['display_string'];
+				document.getElementById('dm_item_display_title').value = data['display_string'];
         getData(data["resource"]["ref"]);
       }
     }
