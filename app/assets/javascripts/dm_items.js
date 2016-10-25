@@ -1,3 +1,10 @@
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+if (month < 10) month = "0" + month;
+if (day < 10) day = "0" + day;
+var today = year + "-" + month + "-" + day;
 
 $(document).ready(function() {
 	if($(".dm_items.new").length) {
@@ -6,14 +13,19 @@ $(document).ready(function() {
 });
 
 $(document).on("change", "#dm_item_status", function() {
-	var date = new Date();
-	var day = date.getDate();
-	var month = date.getMonth() + 1;
-	var year = date.getFullYear();
-	if (month < 10) month = "0" + month;
-	if (day < 10) day = "0" + day;
-	var today = year + "-" + month + "-" + day;
-	document.getElementById('dm_item_transfer_date').value = today;
+	if(document.getElementById('dm_item_status').value == "Transferred - Success") {
+		document.getElementById('dm_item_transfer_date').value = today;
+		document.getElementById('dm_item_method').setAttribute("required", true);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML + "*"
+	} else if (document.getElementById('dm_item_status').value == "Transferred - Failed") {
+		document.getElementById('dm_item_transfer_date').value = today;
+		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
+	} else {
+		document.getElementById('dm_item_transfer_date').value = '';
+		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
+	}
 });
 
 $(document).on('click', '#find_in_as', function(e) {
