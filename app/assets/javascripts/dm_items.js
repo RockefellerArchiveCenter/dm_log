@@ -9,6 +9,8 @@ var today = year + "-" + month + "-" + day;
 $(document).ready(function() {
 	if($(".dm_items.new").length) {
 		generateId();
+	} else if ($(".dm_items.edit").length) {
+		document.getElementById('dm_item_auto_id').setAttribute("disabled", true);
 	}
 });
 
