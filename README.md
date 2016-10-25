@@ -31,7 +31,7 @@ Inspired by https://github.com/NYULibraries/medialog
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
 
 ## Installation
-Create `app/assets/javascripts/application_settings.js` with the base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
+Create `app/assets/javascripts/application_settings.js` with the repository ID and base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
 ```
 // Identifier for the ArchivesSpace repository you want to query
 var asRepo = "2"
