@@ -5,7 +5,7 @@ A Rails app that uses ArchivesSpace's API to quickly inventory digital media ite
 You can use this app to:
 
 * Identify digital media items during processing in order to plan for and perform preservation actions
-* Log basic digital media stabilization information 
+* Log basic digital media stabilization information
 * Integrate with existing collections management system (ArchivesSpace) to reduce duplicate data entry and to record location of item
 
 Fields include:
@@ -31,8 +31,11 @@ Inspired by https://github.com/NYULibraries/medialog
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
 
 ## Installation
-Create `app/assets/javascripts/application_settings.js` with the base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
+Create `app/assets/javascripts/application_settings.js` with the repository ID and base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
 ```
+// Identifier for the ArchivesSpace repository you want to query
+var asRepo = "2"
+
 // Non-expiring session token for an AS user
 var token = "token";
 
