@@ -18,6 +18,7 @@ Fields include:
 * Transfer method (controlled list)
 * Date of transfer (date field)
 * Container disposition (required | controlled list)
+* Notes (need to un-comment on app/views/dm_items/form.html.erb)
 
 
 Inspired by https://github.com/NYULibraries/medialog
