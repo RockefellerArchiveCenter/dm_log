@@ -1,21 +1,40 @@
+// Generate date variables
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+if (month < 10) month = "0" + month;
+if (day < 10) day = "0" + day;
+var today = year + "-" + month + "-" + day;
 
 $(document).ready(function() {
 	if($(".dm_items.new").length) {
+		// Generate IDs for new digital media item records
 		generateId();
+	} else if ($(".dm_items.edit").length) {
+		// Disable editing of IDs for existing digital media item records
+		document.getElementById('dm_item_auto_id').setAttribute("disabled", true);
 	}
 });
 
+// Sets (or unsets) transfer date and makes tranfer method required (or optional) based on value of transfer status
 $(document).on("change", "#dm_item_status", function() {
-	var date = new Date();
-	var day = date.getDate();
-	var month = date.getMonth() + 1;
-	var year = date.getFullYear();
-	if (month < 10) month = "0" + month;
-	if (day < 10) day = "0" + day;
-	var today = year + "-" + month + "-" + day;
-	document.getElementById('dm_item_transfer_date').value = today;
+	if(document.getElementById('dm_item_status').value == "Transferred - Success") {
+		document.getElementById('dm_item_transfer_date').value = today;
+		document.getElementById('dm_item_method').setAttribute("required", true);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML + "*"
+	} else if (document.getElementById('dm_item_status').value == "Transferred - Failed") {
+		document.getElementById('dm_item_transfer_date').value = today;
+		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
+	} else {
+		document.getElementById('dm_item_transfer_date').value = '';
+		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
+	}
 });
 
+// Handle click event on Find in ArchivesSpace button and delegate to getResults function
 $(document).on('click', '#find_in_as', function(e) {
 	e.preventDefault();
 	refid = document.getElementById('dm_item_refid').value;
@@ -23,6 +42,7 @@ $(document).on('click', '#find_in_as', function(e) {
 	getResults(params, refid);
 });
 
+// Populate auto id field with unique ID
 function generateId() {
 	if (document.getElementById('dm_item_auto_id').value == "") {
 		var auto_id = createId();
@@ -30,6 +50,7 @@ function generateId() {
 	}
 }
 
+// Generate a unique ID
 function createId() {
 	var text = "";
 	var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -38,6 +59,7 @@ function createId() {
 	return text;
 }
 
+// Get JSON results from the AS endpoint
 function getResults(data, refid) {
 	$.ajax({
     type: "GET",
@@ -45,7 +67,7 @@ function getResults(data, refid) {
     beforeSend: function(request) {
       request.setRequestHeader("X-ArchivesSpace-Session", token);
     },
-    url: baseURL + "/repositories/2/find_by_id/archival_objects?",
+    url: baseURL + "/repositories/"+asRepo+"/find_by_id/archival_objects?",
     data: data,
     success: function(results) {
       if (results["archival_objects"].length < 1) {
