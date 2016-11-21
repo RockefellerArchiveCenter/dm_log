@@ -20,3 +20,6 @@
 *application_settings.js
 
 *.DS_Store
+
+#Ignore seed file
+*seeds.rb
