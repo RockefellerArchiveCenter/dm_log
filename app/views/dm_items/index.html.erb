@@ -25,6 +25,7 @@
 	  <th>Updated</th>
       <th>Actions</th>
     </tr>
+	<%= will_paginate @dm_items %>
     <% @dm_items.each do |dm_item| %>
     	<tr class="<%= cycle('odd', 'even') %>">
         <td><%= dm_item.auto_id %></td>
