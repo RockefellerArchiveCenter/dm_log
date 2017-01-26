@@ -16,12 +16,12 @@
       <th>ID</th>
       <th>Format</th>
       <th>Transfer Status</th>
-      <th>Transfer Method</th>
+      <!-- <th>Transfer Method</th> -->
 <!--      <th>Transfer Date</th> -->
 <!--       <th>Disposition</th> -->
       <th>Parent Component</th>
       <th>Parent Resource</th>
-	  <th>Created</th>
+	  <!-- ><th>Created</th> -->
 	  <th>Updated</th>
       <th>Actions</th>
     </tr>
@@ -31,12 +31,12 @@
         <td><%= dm_item.auto_id %></td>
         <td><%= dm_item.format %></td>
   	  <td><%= dm_item.status %></td>
-  	  <td><%= dm_item.method %></td>
+  	  <!-- <td><%= dm_item.method %></td> -->
   	  <!-- <td><%= dm_item.transfer_date %></td> -->
   	  <!-- <td><%= dm_item.disposition %></td> -->
   	  <td><%= dm_item.display_title %></td>
   	  <td><%= dm_item.resource %></td>
-  	  <td><%= dm_item.created_at.strftime("%x %X") %></td>
+  	  <!-- <td><%= dm_item.created_at.strftime("%x %X") %></td> -->
   	  <td><%= dm_item.updated_at.strftime("%x %X") %></td>
         <td class="actions">
           <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>
