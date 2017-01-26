@@ -39,6 +39,7 @@
   	  <td><%= dm_item.updated_at.strftime("%x %X") %></td>
         <td class="actions">
           <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>
+		  <%= link_to("View", {:action => 'show', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>
         </td>
       </tr>
     <% end %>
