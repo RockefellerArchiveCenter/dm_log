@@ -23,6 +23,8 @@ Fields include:
 
 Inspired by https://github.com/NYULibraries/medialog
 
+This tool is intended to be used behind a firewall.
+
 ## Requirements
 
 * Rails 5.0
