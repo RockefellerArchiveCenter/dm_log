@@ -23,6 +23,8 @@ Fields include:
 
 Inspired by https://github.com/NYULibraries/medialog
 
+This tool is intended to be used behind a firewall.
+
 ## Requirements
 
 * Rails 5.0
@@ -51,8 +53,8 @@ Run PostgreSQL, and execute the following commands in your terminal
 $ git clone https://github.com/RockefellerArchiveCenter/dm_log.git
 $ cd dm_log
 $ bundle install
-$ rails db:create
-$ rails db:migrate
+$ rake db:create
+$ rake db:migrate
 $ rails s
 ```
 In your web browser, go to `http://localhost:3000/`. To access the JSON data, append `/json` to the url of the item you want to access (`http://localhost:3000/dm_items/3/json`).
