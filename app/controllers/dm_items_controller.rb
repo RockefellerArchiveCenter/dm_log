@@ -1,6 +1,5 @@
 class DmItemsController < ApplicationController
   
-  before_action :authenticate_user!
   
   def index
     @dm_items = DmItem.search(params[:search]).page(params[:page]).order('updated_at DESC').per_page(10)
