@@ -52,3 +52,5 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'will_paginate', '~> 3.1.5'
+
+gem 'devise'

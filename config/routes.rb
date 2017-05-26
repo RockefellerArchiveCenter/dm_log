@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'sessions/new'
 
   get 'signup'  => 'users#new'
