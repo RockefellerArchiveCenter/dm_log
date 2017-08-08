@@ -13,7 +13,7 @@ $(document).ready(function() {
 		generateId();
 	} else if ($(".dm_items.edit").length) {
 		// Disable editing of IDs for existing digital media item records
-		document.getElementById('dm_item_auto_id').setAttribute("disabled", true);
+		$('#dm_item_auto_id').setAttribute("disabled", true);
 	}
 	$('.dm_items .form-control').on('change', function() {
 		if (validateForm()) {
@@ -25,35 +25,35 @@ $(document).ready(function() {
 });
 
 // Sets (or unsets) transfer date and makes tranfer method required (or optional) based on value of transfer status
-$(document).on("change", "#dm_item_status", function() {
-	if(document.getElementById('dm_item_status').value == "Transferred - Success") {
-		document.getElementById('dm_item_transfer_date').value = today;
-		document.getElementById('dm_item_method').setAttribute("required", true);
+$("#dm_item_status").on("change", function() {
+	if($('#dm_item_status').val() == "Transferred - Success") {
+		$('#dm_item_transfer_date').val(today);
+		$('#dm_item_method').prop("required", true);
 		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML + "*"
 	} else if (document.getElementById('dm_item_status').value == "Transferred - Failed") {
-		document.getElementById('dm_item_transfer_date').value = today;
-		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('#dm_item_transfer_date').val(today);
+		$('#dm_item_method').prop("required", false);
 		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
 	} else {
-		document.getElementById('dm_item_transfer_date').value = '';
-		document.getElementById('dm_item_method').setAttribute("required", false);
+		$('#dm_item_transfer_date').val() = '';
+		$('#dm_item_method').prop("required", false);
 		$('label[for="dm_item_method"]')[0].innerHTML = $('label[for="dm_item_method"]')[0].innerHTML.replace("*", '');
 	}
 });
 
 // Handle click event on Find in ArchivesSpace button and delegate to getResults function
-$(document).on('click', '#find_in_as', function(e) {
+$('#find_in_as').on('click', function(e) {
 	e.preventDefault();
-	refid = document.getElementById('dm_item_refid').value;
+	refid = $('#dm_item_refid').val();
 	var params = "ref_id[]=" + refid;
 	getResults(params, refid);
 });
 
 // Populate auto id field with unique ID
 function generateId() {
-	if (document.getElementById('dm_item_auto_id').value == "") {
+	if ($('#dm_item_auto_id').val() == "") {
 		var auto_id = createId();
-		document.getElementById('dm_item_auto_id').value = auto_id;
+		$('#dm_item_auto_id').val(auto_id);
 	}
 }
 
@@ -97,9 +97,9 @@ function getData(uri) {
     url: baseURL + uri,
     success: function(data) {
       if (data["jsonmodel_type"] == "resource") {
-				document.getElementById('dm_item_resource').value = data["title"] + ' (' + data["id_0"] + ')';
+				$('#dm_item_resource').value = data["title"] + ' (' + data["id_0"] + ')';
       } else if (data["jsonmodel_type"] == "archival_object") {
-				document.getElementById('dm_item_display_title').value = data['display_string'];
+				$('#dm_item_display_title').value = data['display_string'];
         getData(data["resource"]["ref"]);
       }
     }
@@ -109,10 +109,8 @@ function getData(uri) {
 function validateForm() {
   var isValid = true;
   $('.dm_items .form-control[required]').each(function() {
-    if ( !$(this).val().length  ) {
+    if ( $(this).val() = ''  ) {
 			isValid = false;
-			console.log($(this).attr('id'))
-			console.log($(this).val())
 		}
   });
   return isValid;
