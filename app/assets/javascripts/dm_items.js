@@ -15,6 +15,13 @@ $(document).ready(function() {
 		// Disable editing of IDs for existing digital media item records
 		document.getElementById('dm_item_auto_id').setAttribute("disabled", true);
 	}
+	$('.dm_items .form-control').on('change', function() {
+		if (validateForm()) {
+			$('#submit-button').prop('disabled', false)
+		} else {
+			$('#submit-button').prop('disabled', true)
+		}
+	});
 });
 
 // Sets (or unsets) transfer date and makes tranfer method required (or optional) based on value of transfer status
@@ -97,4 +104,16 @@ function getData(uri) {
       }
     }
   });
+}
+
+function validateForm() {
+  var isValid = true;
+  $('.dm_items .form-control[required]').each(function() {
+    if ( !$(this).val().length  ) {
+			isValid = false;
+			console.log($(this).attr('id'))
+			console.log($(this).val())
+		}
+  });
+  return isValid;
 }
