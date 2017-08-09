@@ -19,8 +19,10 @@
 # Ignore ArchivesSpace configurations in JS settings file
 *application_settings.js
 
+# Ignore DS_Store
 *.DS_Store
 
 #Ignore seed file
 *seeds.rb
 /lib/seeds/*
+
