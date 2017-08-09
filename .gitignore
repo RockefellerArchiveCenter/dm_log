@@ -21,3 +21,8 @@
 
 # Ignore DS_Store
 *.DS_Store
+
+#Ignore seed file
+*seeds.rb
+/lib/seeds/*
+

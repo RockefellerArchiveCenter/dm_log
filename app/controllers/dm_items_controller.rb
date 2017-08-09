@@ -1,9 +1,8 @@
 class DmItemsController < ApplicationController
   
-  before_action :require_user, only: [:index, :show]
   
   def index
-    @dm_items = DmItem.search(params[:search])
+    @dm_items = DmItem.search(params[:search]).page(params[:page]).order('updated_at DESC').per_page(10)
   end
 
   def show
