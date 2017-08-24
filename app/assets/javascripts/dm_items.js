@@ -97,9 +97,9 @@ function getData(uri) {
     url: baseURL + uri,
     success: function(data) {
       if (data["jsonmodel_type"] == "resource") {
-				$('#dm_item_resource').value = data["title"] + ' (' + data["id_0"] + ')';
+				$('#dm_item_resource').val(data["title"] + ' (' + data["id_0"] + ')');
       } else if (data["jsonmodel_type"] == "archival_object") {
-				$('#dm_item_display_title').value = data['display_string'];
+				$('#dm_item_display_title').val(data['display_string'])
         getData(data["resource"]["ref"]);
       }
     }
@@ -109,7 +109,7 @@ function getData(uri) {
 function validateForm() {
   var isValid = true;
   $('.dm_items .form-control[required]').each(function() {
-    if ( $(this).val() = ''  ) {
+    if ( $(this).val() == ''  ) {
 			isValid = false;
 		}
   });
