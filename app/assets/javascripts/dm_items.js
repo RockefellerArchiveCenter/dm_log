@@ -13,7 +13,7 @@ $(document).ready(function() {
 		generateId();
 	} else if ($(".dm_items.edit").length) {
 		// Disable editing of IDs for existing digital media item records
-		$('#dm_item_auto_id').setAttribute("disabled", true);
+		$('#dm_item_auto_id').attr("disabled", true);
 	}
 	$('.dm_items .form-control').on('change', function() {
 		if (validateForm()) {
