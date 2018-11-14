@@ -25,4 +25,5 @@
 #Ignore seed file
 *seeds.rb
 /lib/seeds/*
+db/data.yml
 
