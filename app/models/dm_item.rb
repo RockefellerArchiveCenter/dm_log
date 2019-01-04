@@ -17,7 +17,7 @@ class DmItem < ApplicationRecord
   # filters ArchivesSpace parent resource title by search term (used on index page)
   def self.search(term)
     if term
-      where('resource LIKE ?', "%#{term}%")
+      where('resource LIKE ? or display_title LIKE ?', "%#{term}%", "%#{term}%")
     else
       all
     end
