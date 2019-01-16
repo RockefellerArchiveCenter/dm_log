@@ -2,7 +2,11 @@ class DmItemsController < ApplicationController
   
   
   def index
-    @dm_items = DmItem.search(params[:search]).page(params[:page]).order('updated_at DESC').per_page(10)
+    if params[:search]
+      @dm_items = DmItem.search(params[:search]).page(params[:page]).order('updated_at DESC').per_page(25)
+    else
+      @dm_items = DmItem.all.page(params[:page]).order('updated_at DESC').per_page(25)
+    end
   end
 
   def show

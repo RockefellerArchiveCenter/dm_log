@@ -20,16 +20,15 @@ Fields include:
 * Container disposition (required | controlled list)
 * Notes (need to un-comment on app/views/dm_items/form.html.erb)
 
-
 Inspired by https://github.com/NYULibraries/medialog
 
-This tool is intended to be used behind a firewall.
+This tool is intended to be used behind a firewall. This app used to run on a postgres database; see the postgres branch (no longer actively developed).
 
 ## Requirements
 
 * Rails 5.0
 * Ruby 2.3
-* PostgreSQL
+* MySQL
 
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
 
@@ -48,7 +47,7 @@ var baseURL = "http://localhost:8089"
 
 To install locally:
 
-Run PostgreSQL, and execute the following commands in your terminal
+Run MySQL, and execute the following commands in your terminal
 ```
 $ git clone https://github.com/RockefellerArchiveCenter/dm_log.git
 $ cd dm_log
