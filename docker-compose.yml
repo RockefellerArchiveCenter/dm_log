@@ -13,6 +13,7 @@ services:
       - db
   db:
     image: mysql:8.0.13
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
     environment:
