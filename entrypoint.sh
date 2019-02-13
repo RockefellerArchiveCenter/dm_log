@@ -1,7 +1,8 @@
 #!/bin/bash
-set -e
 
-sleep 30
+/usr/bin/wait-for-it.sh db:3306 --
+
+set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
 rm -f /dm_log/tmp/pids/server.pid

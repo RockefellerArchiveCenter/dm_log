@@ -16,4 +16,7 @@ COPY . /dm_log
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 
+COPY wait-for-it.sh /usr/bin/
+RUN chmod +x /usr/bin/wait-for-it.sh
+
 EXPOSE 3000
