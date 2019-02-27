@@ -24,6 +24,17 @@ Inspired by https://github.com/NYULibraries/medialog
 
 This tool is intended to be used behind a firewall. This app used to run on a postgres database; see the postgres branch (no longer actively developed).
 
+## Quick Start
+
+A Docker container is included in this repository so you can quickly spin up a sample site on your computer. With git and Docker installed, run:
+
+    git clone https://github.com/RockefellerArchiveCenter/dm_log.git
+    cd dm_log
+	docker-compose build
+    docker-compose up
+
+The application will be available in your browser at `http://localhost:3000`.
+
 ## Requirements
 
 * Rails 5.0
