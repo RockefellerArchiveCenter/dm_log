@@ -62,6 +62,10 @@
       <th>Updated</th>
       <td><%= @dm_item.updated_at.strftime("%x %X") %></td>
     </tr>
+    <tr>
+      <th>Last modified by</th>
+      <td><%= @dm_item.modified_by %></td>
+    </tr>
   </table>
 
   <%= link_to("Edit", {:action => 'edit'}, :class => 'btn btn-warning') %>

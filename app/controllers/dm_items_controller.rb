@@ -58,15 +58,15 @@ class DmItemsController < ApplicationController
   private 
   
   def dm_items_params
-    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search)
+    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search, :modified_by)
 end
 
   def sortable_columns
-    ["auto_id", "format", "status", "display_title", "resource"]
+    ["auto_id", "format", "status", "display_title", "resource", "modified_by"]
   end
 
   def sort_column
-    sortable_columns.include?(params[:column]) ? params[:column] : "name"
+    sortable_columns.include?(params[:column]) ? params[:column] : "auto_id"
   end
 
   def sort_direction
