@@ -1,6 +1,6 @@
 class DmItemsController < ApplicationController
-
-
+  
+  
   def index
     if params[:search]
       @dm_items = DmItem.search(params[:search]).page(params[:page]).order('updated_at DESC').per_page(25)
@@ -16,8 +16,8 @@ class DmItemsController < ApplicationController
   def new
     @dm_item = DmItem.new()
   end
-
-
+  
+  
   def create
     # Instantiate a new object using form parameters
     @dm_item = DmItem.new(dm_items_params)
@@ -31,12 +31,12 @@ class DmItemsController < ApplicationController
     render("new")
   end
   end
-
+  
 
   def edit
     @dm_item = DmItem.find(params[:id])
   end
-
+  
   def update
     # Find an existing object using form parameters
     @dm_item = DmItem.find(params[:id])
@@ -54,11 +54,11 @@ class DmItemsController < ApplicationController
 #  def delete
 #    @dm_item = DmItem.find(params[:id])
 #  end
-
-  private
-
+  
+  private 
+  
   def dm_items_params
-    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search, :virus_check)
+    params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search)
 end
 
 end
