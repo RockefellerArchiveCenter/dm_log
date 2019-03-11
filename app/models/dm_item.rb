@@ -11,8 +11,6 @@ class DmItem < ApplicationRecord
 
   validates_presence_of :status
 
-  validates_presence_of :virus_check
-
   # sorts digital media items in order of record creation date
   scope :sorted, lambda { order("dm_items.created_at ASC") }
 

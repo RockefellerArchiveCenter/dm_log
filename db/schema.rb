@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170526144906) do
     t.string   "refid"
     t.string   "display_title"
     t.string   "resource"
-    t.string   "virus_check"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
