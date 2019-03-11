@@ -12,7 +12,7 @@ class CreateDmItems < ActiveRecord::Migration[5.0]
       t.string :refid
       t.string :display_title
       t.string :resource
-
+      t.string :virus_check
       t.timestamps
     end
   end
