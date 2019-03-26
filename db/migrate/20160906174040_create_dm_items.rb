@@ -12,10 +12,6 @@ class CreateDmItems < ActiveRecord::Migration[5.0]
       t.string :refid
       t.string :display_title
       t.string :resource
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of 41b8762... Fixes #44
       t.timestamps
     end
   end
