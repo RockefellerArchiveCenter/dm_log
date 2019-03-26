@@ -56,7 +56,7 @@ class DmItemsController < ApplicationController
 #  end
 
   private
-
+#shows required parameters
   def dm_items_params
     params.require(:dm_item).permit(:auto_id, :format, :status, :method, :transfer_date, :disposition, :notes, :refid, :display_title, :resource, :search, :virus_check)
 end

@@ -4,7 +4,7 @@ class DmItem < ApplicationRecord
   validates :auto_id, :presence => true, :uniqueness => true
 
 
-  # digital media item must have an ArchivesSpace refid, format, and transfer status before record can be saved
+  # digital media item must have an ArchivesSpace refid, format, transfer status, and virus check before record can be saved
   validates_presence_of :refid
 
   validates_presence_of :format
