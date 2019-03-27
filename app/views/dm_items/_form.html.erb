@@ -69,6 +69,14 @@
 		</div>
 	</div>
 
+<!--add virus checking-->
+	<div class="form-group">
+		<%= f.label(:virus_check, "Virus Check*", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:virus_check, ["Not Checked", "Checked - Success", "Checked - Failed"], {}, {:class => "form-control"}) %>
+		</div>
+	</div>
+
 <!--
 	<div class="form-group">
 		<%= f.label(:disposition, "Item Disposition", :class => "control-label col-xs-3") %>
