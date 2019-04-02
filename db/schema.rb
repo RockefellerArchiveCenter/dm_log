@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20190326165503) do
 
+
   create_table "dm_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "auto_id"
     t.string   "format"

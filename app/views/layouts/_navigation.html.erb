@@ -1,29 +1,20 @@
-<%# navigation styled for Bootstrap 3.0 %>
-<!--<nav class="navbar navbar-inner navbar-fixed-top"> -->
-<nav class="navbar navbar-inner navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-		<ul class="nav navbar-nav">
-      <li><%= link_to 'Home', root_path, class: 'navbar-brand' %></li>
-	  </ul>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-	  </div>
-	  <div>
-	  <ul class="nav navbar-nav navbar-right">
-		  <% if user_signed_in? %>
-		    Logged in as <strong><%= current_user.email %></strong>.
-		    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-		    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-		  <% else %>
-		    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-		    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-		  <% end %>  
-  </ul>   
-</div>
-  </div>
-</nav>
+<%# navigation styled for Bootstrap 3.0 %><!--<nav class="navbar navbar-inner navbar-fixed-top"> -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<nav class="navbar navbar-inner navbar-fixed-top">
+			<div class="container">
+					<ul class="nav nav-pills">
+						<li>
+							<%= link_to 'Home', root_path, class: 'navbar-link' %>
+						</li>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> </button>
+						<%if user_signed_in? %> <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li><div class="nav navbar-nav navbar-right">Logged in as <strong><%= current_user.email %></div></strong></ul>
+						<%else %><ul class="nav nav-pills"><li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li><li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li></ul><%end %>
+			</div>
+		</nav>
+	</body>
+</html>

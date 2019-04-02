@@ -92,6 +92,7 @@
 	<%= f.text_area(:notes, :rows => "5", :class => "form-control") %>
 	</div>
 </div> -->
+<%= f.hidden_field(:modified_by, :value=>current_user.email) %>
 
 <div class="col-xs-9 col-xs-offset-3">
 	<%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button", :disabled => true) %>
