@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   get 'sessions/new'
 
   get 'signup'  => 'users#new'
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
   
   delete 'logout' => 'sessions#destroy'
   
-  get 'dm_items/:id/json' => 'api/v0#dm_item'
+  namespace :api do
+    get 'dm_items/:id' => 'v0#dm_item'
+  end 
+    
   
   resources :users
 
