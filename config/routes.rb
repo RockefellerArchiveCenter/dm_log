@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   namespace :api do
-    get 'dm_items/:id' => 'v0#dm_item'
+    get 'dm_items/:id' => 'v0#show'
   end 
     
   
