@@ -100,7 +100,7 @@ puts "There are now #{DmItem.count} rows in the digital media items table"
 ```
 
 ## Usage
-To access JSON data via the API, requests should have the format `/api/dm_items/10?user_email=example@example.com&user_token=1G8_s7P-V-4MGojaKD7a`. The token is available in the app GUI.
+There is an API that accepts GET, PUT, and PATCH requests in JSON. To access JSON data via the API, requests must container `user_email` and `user_token` parameters, e.g., in the format `/api/dm_items/10?user_email=example@example.com&user_token=1G8_s7P-V-4MGojaKD7a`. The token is available in the app GUI.
 
 ## Contributing
 
