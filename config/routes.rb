@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     get 'dm_items/:id' => 'v0#show'
+    get 'dm_items' => 'v0#index'
   end 
     
   
