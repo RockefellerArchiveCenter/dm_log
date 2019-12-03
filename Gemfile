@@ -46,7 +46,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'bootstrap-sass', '3.3.6'
+gem "bootstrap-sass", ">= 3.4.1"
 
 gem 'rack-cors', :require => 'rack/cors'
 
@@ -55,6 +55,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'will_paginate', '~> 3.1.5'
 
-gem 'devise'
+gem "devise", ">= 4.7.1"
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
+
+gem "actionview", ">= 5.0.7.2"
+
+gem "nokogiri", ">= 1.10.4"
+
+
