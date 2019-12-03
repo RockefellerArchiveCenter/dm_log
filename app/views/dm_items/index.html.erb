@@ -13,15 +13,16 @@
 
   <table class="table table-hover" summary="Digital media item list">
     <tr class="header">
-      <th>ID</th>
-      <th>Format</th>
-      <th>Transfer Status</th>
+      <th><%= sort_link "auto_id", "ID" %></th>
+      <th><%= sort_link "format", "Format" %></th>
+      <th><%= sort_link "status", "Transfer Status" %></th>
       <!-- <th>Transfer Method</th> -->
 <!--      <th>Transfer Date</th> -->
 <!--       <th>Disposition</th> -->
-      <th>Parent Component</th>
-      <th>Parent Resource</th>
+      <th><%= sort_link "display_title", "Component" %></th>
+      <th><%= sort_link "resource", "Resource" %></th>
 	  <!-- ><th>Created</th> -->
+	  <th><%= sort_link "modified_by", "User" %></th>
 	  <th>Updated</th>
       <th>Actions</th>
     </tr>
@@ -37,7 +38,8 @@
   	  <td><%= dm_item.display_title %></td>
   	  <td><%= dm_item.resource %></td>
   	  <!-- <td><%= dm_item.created_at.strftime("%x %X") %></td> -->
-  	  <td><%= dm_item.updated_at.strftime("%x %X") %></td>
+  	  <td><%= dm_item.modified_by %></td>
+	  <td><%= dm_item.updated_at.strftime("%b %e, %Y") %></td>
         <td class="actions">
           <%= link_to("Edit", {:action => 'edit', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>
 		  <%= link_to("View", {:action => 'show', :id => dm_item.id}, :class => 'btn btn-xs btn-default') %>

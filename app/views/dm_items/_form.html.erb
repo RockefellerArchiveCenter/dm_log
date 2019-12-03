@@ -69,6 +69,14 @@
 		</div>
 	</div>
 
+<!--add virus checking-->
+	<div class="form-group">
+		<%= f.label(:virus_check, "Virus Check*", :class => "control-label col-xs-3") %>
+		<div class="col-xs-9">
+			<%= f.select(:virus_check, ["Not Checked", "Checked - Success", "Checked - Failed"], {}, {:class => "form-control"}) %>
+		</div>
+	</div>
+
 <!--
 	<div class="form-group">
 		<%= f.label(:disposition, "Item Disposition", :class => "control-label col-xs-3") %>
@@ -84,6 +92,7 @@
 	<%= f.text_area(:notes, :rows => "5", :class => "form-control") %>
 	</div>
 </div> -->
+<%= f.hidden_field(:modified_by, :value=>current_user.email) %>
 
 <div class="col-xs-9 col-xs-offset-3">
 	<%= submit_tag("Submit", :class => "btn btn-primary", :id => "submit-button", :disabled => true) %>

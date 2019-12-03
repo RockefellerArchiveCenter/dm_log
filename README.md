@@ -18,16 +18,28 @@ Fields include:
 * Transfer method (controlled list)
 * Date of transfer (date field)
 * Container disposition (required | controlled list)
+* Virus scanned (required | controlled list)
 * Notes (need to un-comment on app/views/dm_items/form.html.erb)
 
 Inspired by https://github.com/NYULibraries/medialog
 
 This tool is intended to be used behind a firewall. This app used to run on a postgres database; see the postgres branch (no longer actively developed).
 
+## Quick Start
+
+A Docker container is included in this repository so you can quickly spin up a sample site on your computer. With git and Docker installed, run:
+
+    git clone https://github.com/RockefellerArchiveCenter/dm_log.git
+    cd dm_log
+	docker-compose build
+    docker-compose up
+
+The application will be available in your browser at `http://localhost:3000`.
+
 ## Requirements
 
 * Rails 5.0
-* Ruby 2.3
+* Ruby 2.4
 * MySQL
 
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
@@ -56,7 +68,7 @@ $ rake db:create
 $ rake db:migrate
 $ rails s
 ```
-In your web browser, go to `http://localhost:3000/`. To access the JSON data, append `/json` to the url of the item you want to access (`http://localhost:3000/dm_items/3/json`).
+In your web browser, go to `http://localhost:3000/`. To access the JSON data, append `/api` before `/dm_items` for the item you want to access (`http://localhost:3000/api/dm_items/3`).
 
 ### Seed Database from CSV
 To populate the database from a CSV file, follow these instructions: https://gist.github.com/arjunvenkat/1115bc41bf395a162084
@@ -86,6 +98,9 @@ end
 
 puts "There are now #{DmItem.count} rows in the digital media items table"
 ```
+
+## Usage
+There is an API that accepts GET, PUT, and PATCH requests in JSON. To access JSON data via the API, requests must container `user_email` and `user_token` parameters, e.g., in the format `/api/dm_items/10?user_email=example@example.com&user_token=1G8_s7P-V-4MGojaKD7a`. The token is available in the app GUI.
 
 ## Contributing
 
