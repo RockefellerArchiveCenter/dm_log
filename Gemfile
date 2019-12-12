@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.4.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.0.0', '>= 5.0.7.2'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Rails plugin for a database-independent dump format, data.yml
@@ -46,7 +46,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'bootstrap-sass', '3.3.6'
+gem "bootstrap-sass", ">= 3.4.1"
 
 gem 'rack-cors', :require => 'rack/cors'
 
@@ -55,6 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'will_paginate', '~> 3.1.5'
 
-gem 'devise'
+gem "devise", ">= 4.7.1"
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
+
+
