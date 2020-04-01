@@ -1,4 +1,4 @@
-class CreateDmItems < ActiveRecord::Migration[5.0]
+class CreateDmItems < ActiveRecord::Migration[5.2]
   def change
     create_table :dm_items do |t|
       t.string :auto_id
