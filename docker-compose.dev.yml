@@ -14,7 +14,7 @@ services:
     image: rockarch/dm_log:latest
     command: /usr/bin/entrypoint.sh
     ports:
-      - "3000:3000"
+      - "3002:3000"
     env_file:
       - ./.env.dev
     links:
