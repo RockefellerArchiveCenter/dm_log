@@ -31,10 +31,12 @@ A Docker container is included in this repository so you can quickly spin up a s
 
     git clone https://github.com/RockefellerArchiveCenter/dm_log.git
     cd dm_log
-	docker-compose build
+    docker-compose build
     docker-compose up
 
 The application will be available in your browser at `http://localhost:3000`.
+
+
 
 ## Requirements
 
@@ -44,7 +46,17 @@ The application will be available in your browser at `http://localhost:3000`.
 
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
 
-## Installation
+## Deploying in production
+
+In order to deploy in production, `dm_log` expects the following environment variables to be set (the values associated with each of these may change):
+
+```
+MYSQL_ROOT_PASSWORD=example
+SECRET_KEY_BASE=Wa4Kdu6hMt3tYKm4jb9p4vZUuc7jBVFw
+```
+
+You can either provide these variables on the command line or in an [env file](https://docs.docker.com/compose/env-file/).
+
 Create `app/assets/javascripts/application_settings.js` with the repository ID and base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
 ```
 // Identifier for the ArchivesSpace repository you want to query
@@ -57,47 +69,7 @@ var token = "token";
 var baseURL = "http://localhost:8089"
 ```
 
-To install locally:
 
-Run MySQL, and execute the following commands in your terminal
-```
-$ git clone https://github.com/RockefellerArchiveCenter/dm_log.git
-$ cd dm_log
-$ bundle install
-$ rake db:create
-$ rake db:migrate
-$ rails s
-```
-In your web browser, go to `http://localhost:3000/`. To access the JSON data, append `/api` before `/dm_items` for the item you want to access (`http://localhost:3000/api/dm_items/3`).
-
-### Seed Database from CSV
-To populate the database from a CSV file, follow these instructions: https://gist.github.com/arjunvenkat/1115bc41bf395a162084
-
-using a seeds.rb file that looks like this:
-
-```
-require 'csv'
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'dm_items.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'UTF-8')
-csv.each do |row|
-  t = DmItem.new
-  t.auto_id = row['auto_id']
-  t.format = row['format']
-  t.status = row['status']
-  t.method = row['method']
-  t.disposition = row['disposition']
-  t.transfer_date = row['transfer_date']
-  t.refid = row['ref_id']
-  t.display_title = row['display_title']
-  t.resource = row['resource']
-  t.save
-  puts "#{t.auto_id}, #{t.resource} saved"
-end
-
-
-puts "There are now #{DmItem.count} rows in the digital media items table"
-```
 
 ## Usage
 There is an API that accepts GET, PUT, and PATCH requests in JSON. To access JSON data via the API, requests must container `user_email` and `user_token` parameters, e.g., in the format `/api/dm_items/10?user_email=example@example.com&user_token=1G8_s7P-V-4MGojaKD7a`. The token is available in the app GUI.
