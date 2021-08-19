@@ -55,7 +55,7 @@ MYSQL_ROOT_PASSWORD=example
 SECRET_KEY_BASE=Wa4Kdu6hMt3tYKm4jb9p4vZUuc7jBVFw
 ```
 
-You can either provide these variables on the command line or in an [env file](https://docs.docker.com/compose/env-file/).
+You can either provide these variables on the command line or in an [env file](https://docs.docker.com/compose/env-file/). (These are not needed when running locally due to the `--default-authentication-plugin=mysql_native_password` command.)
 
 Create `app/assets/javascripts/application_settings.js` with the repository ID and base url for your ArchivesSpace instance and a non-expiring session token for an AS user:
 ```
