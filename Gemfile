@@ -59,4 +59,8 @@ gem "devise", ">= 4.7.1"
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
+gem 'json', '~>  2.5.1'
 
+gem 'uri', '~> 0.10.1'
+
+gem 'rubocop', require: false
