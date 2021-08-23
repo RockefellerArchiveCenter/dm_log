@@ -27,3 +27,5 @@
 /lib/seeds/*
 db/data.yml
 
+# Ignore environment variable file
+.env

@@ -1,0 +1,28 @@
+version: '2.4'
+
+services:
+  db:
+    image: mysql:8.0.13
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - dm_log_db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./.env.dev
+  web:
+    image: rockarch/dm_log:latest
+    command: /usr/bin/entrypoint.sh
+    ports:
+      - "3002:3000"
+    env_file:
+      - ./.env.dev
+    links:
+       - db
+    depends_on:
+      - db
+
+volumes:
+  dm_log_db:
+    driver: vsphere
+
