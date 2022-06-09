@@ -1,4 +1,4 @@
-FROM ruby:2.4.5-stretch
+FROM ruby:2.5.9-stretch
 RUN apt-get update && \
     apt-get install -y nodejs \
                        vim \
