@@ -40,8 +40,8 @@ The application will be available in your browser at `http://localhost:3000`.
 
 ## Requirements
 
-* Rails 5.0
-* Ruby 2.4
+* Rails 5.2
+* Ruby 2.5
 * MySQL
 
 Because the application makes HTTP using Javascript, CORS needs to be implemented on your ArchivesSpace instance. See [as-cors](https://github.com/RockefellerArchiveCenter/as-cors) for an example of how to do this with an ArchivesSpace plugin.
